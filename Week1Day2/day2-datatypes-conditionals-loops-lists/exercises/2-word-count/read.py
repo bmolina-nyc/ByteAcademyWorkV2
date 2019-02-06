@@ -14,7 +14,6 @@ def word_counter(file_object, n):
                 words_dic[word] = 1
 
     sorted_words_dic = sorted(words_dic.items(), reverse=True, key=operator.itemgetter(1) )
-    print(sorted_words_dic)
     
     counter = n 
     while counter > 0:
