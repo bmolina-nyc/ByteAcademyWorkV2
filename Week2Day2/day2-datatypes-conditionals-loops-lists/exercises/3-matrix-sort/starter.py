@@ -4,4 +4,4 @@ def read_matrix(filename):
     of integers representing the matrix. matrix[r][c] is the element on
     row #r and column #c """
     with open(filename, 'r') as input_file:
-        return [[int(column) for column in row.split()] for row in input_file]]
+        return [[int(column) for column in row.split()] for row in input_file]
