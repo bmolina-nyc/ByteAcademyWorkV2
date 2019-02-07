@@ -5,27 +5,48 @@ def read_matrix(filename):
 
     with open(filename, 'r') as input_file:
         items =  [[int(column) for column in row.split()] for row in input_file]
-        # row_sums = []
-        # column_sums = []
-        # for i in range(len(items)):
-        #         for j in items:
-        #                 row_sums.append(sum(items[i]))
-        #                 break
+        return items
 
-        # print("Row Sums: " +  " ".join(map(lambda i: str(i), row_sums)))
+dataset = read_matrix("testmatrix1.txt")
 
-        # i = 0
-        # while i < len(items[0]):
-        #         column_sums.append(items[0][i] + items[1][i] + items[2][i])
-        #         i += 1
-        
-        # print("Column Sums: " + " ".join(map(lambda i: str(i), column_sums)))
 
-        for el in range(len(items)):
-                for row in items:
-                        print(row[el])
+def rows_summer(dataset):  
+        row_sums = []
+        for i in range(len(dataset)):
+                for j in dataset:
+                        row_sums.append(sum(dataset[i]))
+                        break
 
+        print("Row Sums: " +  " ".join(map(lambda i: str(i), row_sums)))
+
+    
+# def columns_summer(dataset):
+#         column_sums_math = []
+#         final_column_sums = []
+
+#         for idx in range(len(dataset)+1):
+#                 for list_el in dataset:
+#                         column_sums_math.append(list_el[idx])
+#                         if len(column_sums_math) == len(dataset):
+#                                 final_column_sums.append(sum(column_sums_math))
+#                                 column_sums_math = []
+#         print('Columm Sums: ' + " ".join(map(lambda x: str(x), final_column_sums)))
+
+def columns_summer(dataset):
+    final_column_sums = [sum([row[i] for row in dataset]) for i in range(0, len(dataset[0]))]
+    print('Columm Sums: ' + " ".join(map(lambda x: str(x), final_column_sums)))
 
    
 
-read_matrix("testmatrix0.txt")
+def matrix_resort_rows(dataset):
+        for i in range(len(dataset)):
+                for j in range(len(dataset)-1):
+                        if sum(dataset[j]) > sum(dataset[j+1]):
+                                dataset[j], dataset[j+1] = dataset[j+1], dataset[j]
+        for inner_list in dataset:
+                print(" ".join(map(lambda x: str(x), inner_list)))
+
+              
+rows_summer(dataset)
+columns_summer(dataset)
+matrix_resort_rows(dataset)
