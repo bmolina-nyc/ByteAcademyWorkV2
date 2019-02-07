@@ -2,9 +2,9 @@ def mcnuggets(y):
     six, nine, twenty = 6,9,20
 
     x = {} 
-    for i in range(10):
-        for j in range(10):
-            for k in range(10):
+    for i in range(y):
+        for j in range(y):
+            for k in range(y):
                 # get the total sum of every number in the ranges multiplied by nugget amount
                 total = k * six + j * nine + i * twenty
                 # create a dictionary key and value pair for the total and the number of nugget 
@@ -22,6 +22,7 @@ def mcnuggets(y):
             print(f"True - {y} can be made via {x[y]}")
             return True 
     print("Not a mcnugget number")
+    return False 
  
 
-mcnuggets(45)
+mcnuggets(29)

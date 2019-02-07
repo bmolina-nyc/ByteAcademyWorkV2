@@ -7,7 +7,7 @@ def read_matrix(filename):
         items =  [[int(column) for column in row.split()] for row in input_file]
         return items
 
-dataset = read_matrix("testmatrix1.txt")
+dataset = read_matrix("testmatrix0.txt")
 
 
 def rows_summer(dataset):  
@@ -32,13 +32,20 @@ def rows_summer(dataset):
 #                                 column_sums_math = []
 #         print('Columm Sums: ' + " ".join(map(lambda x: str(x), final_column_sums)))
 
+# def columns_summer(dataset):
+#     final_column_sums = [sum([row[i] for row in dataset]) for i in range(0, len(dataset[0]))]
+#     print('Columm Sums: ' + " ".join(map(lambda x: str(x), final_column_sums)))
+
 def columns_summer(dataset):
-    final_column_sums = [sum([row[i] for row in dataset]) for i in range(0, len(dataset[0]))]
-    print('Columm Sums: ' + " ".join(map(lambda x: str(x), final_column_sums)))
+    column_sums = [] 
+    for i in range(len(dataset[0])):
+        sum = 0
+        for data_list in dataset:
+            sum += data_list[i] # an individual indexed item from each list
+        column_sums.append(sum)     
+    print('Column Sums: ' + " ".join(map(lambda x: str(x), column_sums)))
 
-   
-
-def matrix_resort_rows(dataset):
+def matrix_sort_rows(dataset):
         for i in range(len(dataset)):
                 for j in range(len(dataset)-1):
                         if sum(dataset[j]) > sum(dataset[j+1]):
@@ -46,7 +53,12 @@ def matrix_resort_rows(dataset):
         for inner_list in dataset:
                 print(" ".join(map(lambda x: str(x), inner_list)))
 
+def matrix_sort_columns(dataset):
+        pass
+
+
               
-rows_summer(dataset)
-columns_summer(dataset)
-matrix_resort_rows(dataset)
+# rows_summer(dataset)
+# columns_summer(dataset)
+# matrix_sort_rows(dataset)
+matrix_sort_columns(dataset)
