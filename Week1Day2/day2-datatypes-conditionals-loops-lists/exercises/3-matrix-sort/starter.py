@@ -12,7 +12,7 @@ dataset = read_matrix("testmatrix0.txt")
 
 def rows_summer(dataset):  
         row_sums = []
-        for i in range(len(dataset)):
+        for i in range(len(dataset)): 
                 for j in dataset:
                         row_sums.append(sum(dataset[i]))
                         break
