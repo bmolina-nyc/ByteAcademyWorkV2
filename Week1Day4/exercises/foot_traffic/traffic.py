@@ -13,7 +13,7 @@ def print_file(filename):
     return printed_text
 
 # formatted dataset text file
-dataset = print_file('traffic_sample.txt')
+dataset = print_file('traffic.txt')
 
 
 def users_in(dataset):
@@ -75,11 +75,19 @@ output = averages_visits_per_room(time_spent_per_room, total_user_vists)
 
 def final_output(output):
     i = 0 
+    final_copy = []
     while i < len(output):
-        print(f'Room {output[i][0]}, {output[i][1]} minute average visit, {output[i][2]} visitors(s) totals')
+        final_copy.append(f'Room {output[i][0]}, {output[i][1]} minute average visit, {output[i][2]} visitors(s) totals')
         i += 1
+    return final_copy
 
-print(final_output(output))
+final_traffic_output = final_output(output)
+
+final_output = open("finaloutput.txt", "w")
+for line in final_traffic_output:
+    final_output.write(line)
+    final_output.write('\n')
+final_output.close()
 
 
 
