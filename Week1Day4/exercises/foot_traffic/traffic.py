@@ -13,7 +13,7 @@ def print_file(filename):
     return printed_text
 
 # formatted dataset text file
-dataset = print_file('traffic.txt')
+dataset = print_file('traffic_sample.txt')
 
 
 def users_in(dataset):
@@ -44,12 +44,15 @@ def users_visits(users_coming):
 
 # works up the total time spent per room
 def total_time_spent_per_room(users_coming, users_going):
+   times = {} 
    sorted_users_coming = sorted(users_coming)
    sorted_users_going = sorted(users_going)
-   times = {} 
    i = 0
    while i < len(sorted_users_coming):
-       times[sorted_users_coming[i][1]] = ( int(sorted_users_going[i][3]) - int(sorted_users_coming[i][3]) )
+       if sorted_users_coming[i][1] not in times:
+           times[sorted_users_coming[i][1]] = ( int(sorted_users_going[i][3]) - int(sorted_users_coming[i][3]) )
+       else: 
+            times[sorted_users_coming[i][1]] += ( int(sorted_users_going[i][3]) - int(sorted_users_coming[i][3]) )
        i += 1   
    return times
 
@@ -75,8 +78,6 @@ def final_output(output):
     while i < len(output):
         print(f'Room {output[i][0]}, {output[i][1]} minute average visit, {output[i][2]} visitors(s) totals')
         i += 1
-
-
 
 print(final_output(output))
 
