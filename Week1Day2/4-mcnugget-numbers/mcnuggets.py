@@ -6,10 +6,10 @@ def mcnuggets(y):
         for j in range(y):
             for k in range(y):
                 # get the total sum of every number in the ranges multiplied by nugget amount
-                total = k * six + j * nine + i * twenty
+                total = i * six + j * nine + k * twenty
                 # create a dictionary key and value pair for the total and the number of nugget 
                 # combos it takes to create the total
-                x[total] = [f'six: {k}, nine: {j}, twenty: {i}']
+                x[total] = [f'six: {i}, nine: {j}, twenty: {k}']
                 # created entire dictionary, now bubbling up to check if any total matches the
                 # passed in parameter. If so, we'll also share the key,value pair from the dictionary
                 if y == total:
@@ -25,4 +25,4 @@ def mcnuggets(y):
     return False 
  
 
-mcnuggets(29)
+mcnuggets(20)

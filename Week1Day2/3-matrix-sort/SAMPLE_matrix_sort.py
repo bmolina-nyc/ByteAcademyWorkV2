@@ -1,8 +1,9 @@
-from tabulate import tabulate
+# from tabulate import tabulate
 
 def matrix_sort(text_file):
     with open(text_file) as f:
         text = f.readlines()
+        
 
     matrix = []
     for line in text:
@@ -24,6 +25,9 @@ def matrix_sort(text_file):
 
     sorted_by_row = []
     for i in range(len(row_sum)):
+        print(row_sum_enumerate[i])
+        print(matrix[row_sum_enumerate[i][0]])
+        input()
         sorted_by_row.append(matrix[row_sum_enumerate[i][0]])
 
     col_sum_enumerate = list(enumerate(col_sum))
@@ -35,9 +39,9 @@ def matrix_sort(text_file):
         for i in range(len(matrix)):
             sorted_by_col[i].append(matrix[i][col_sum_enumerate[j][0]])
 
-    print(tabulate(sorted_by_row))
-    print(tabulate(sorted_by_col))
+    # print(tabulate(sorted_by_row))
+    # print(tabulate(sorted_by_col))
 
-matrix_sort("testmatrix.txt")
+matrix_sort("testmatrix1.txt")
 
 

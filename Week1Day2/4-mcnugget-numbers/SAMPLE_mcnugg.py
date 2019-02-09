@@ -17,7 +17,7 @@ def mcnugg(x):
     for num in range(0,i):
         if num not in mcnumbs:
             not_nug.append(num)
-    return not_nug
+    return mcnumbs
 
 value = int(input('Choose a number: '))
 
