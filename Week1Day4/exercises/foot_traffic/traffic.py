@@ -32,6 +32,7 @@ def users_out(dataset):
 
 users_coming, users_going = users_in(dataset), users_out(dataset)
 
+# counts the visits per room
 def users_visits(users_coming):
     times = {}
     for list in users_coming:
@@ -41,6 +42,7 @@ def users_visits(users_coming):
             times[list[1]] += 1
     return times
 
+# works up the total time spent per room
 def total_time_spent_per_room(users_coming, users_going):
    sorted_users_coming = sorted(users_coming)
    sorted_users_going = sorted(users_going)
@@ -54,6 +56,7 @@ def total_time_spent_per_room(users_coming, users_going):
 time_spent_per_room = total_time_spent_per_room(users_coming, users_going)
 total_user_vists = users_visits(users_coming)
 
+# averages
 def averages_visits_per_room(time_spent_per_room, total_user_vists):
     times = []
     time_spent_per_room = time_spent_per_room
