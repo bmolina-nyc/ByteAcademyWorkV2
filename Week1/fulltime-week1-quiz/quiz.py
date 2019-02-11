@@ -15,7 +15,6 @@ def readcurrency(filename):
         printed_text.append(dict_item)
     return printed_text
 
-
 """
 * Write a second function ```save(filename, data)```
 * This takes a filename and the list constructed by the first list.
