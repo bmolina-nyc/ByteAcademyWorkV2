@@ -21,8 +21,8 @@ def mainmenu(student):
         elif selection == '2':
             view.show_gpa(model.get_gpa(student))
         elif selection == '3':
-            student = view.get_student()
-        elif 
+            # student = view.get_student()
+            return
 
 
 if __name__ == "__main__":

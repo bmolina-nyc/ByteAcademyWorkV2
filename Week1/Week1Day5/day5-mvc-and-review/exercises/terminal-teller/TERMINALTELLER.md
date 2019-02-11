@@ -1,26 +1,20 @@
 ## Week 1 Weekend Project: Terminal Teller
 
-* Write an interactive terminal application simulating an automatic 
-teller machine.
+* Write an interactive terminal application simulating an automatic teller machine.
 
-* It should be divided into model.py, view.py, controller.py as 
-discussed in lecture.
+* It should be divided into model.py, view.py, controller.py as discussed in lecture.
 
 ### requirements
 
-* The model will be a collection of bank accounts. Each account has, 
-at a minimum, an account number, a pin, and a balance. These values 
-should be saved in a permanent file.
+* The model will be a collection of bank accounts. Each account has, at a minimum, an account number, a pin, and a balance. These values should be saved in a permanent file.
 
     * What other data might a consumer bank account track?
 
 * The application should support the following features:
 
-    * An initial menu that allows a user to create an account, log in 
-    with an account # an pin, or exit
+    * An initial menu that allows a user to create an account, log in with an account # an pin, or exit
 
-    * A main menu where a user can check their account balance, 
-    make a deposit, make a withdrawal, or exit
+    * A main menu where a user can check their account balance, make a deposit, make a withdrawal, or exit
 
     * What other features do ATMs (or personal banking websites) have?
 
