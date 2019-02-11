@@ -32,9 +32,8 @@ def save(filename, data):
         datajson["data"] = datalist  
 
     final_output = open(filename, "w")
-    for line in datalist:
-        final_output.write(str(line))
-        final_output.write('\n')
+    final_output.write(str(datajson))
     
+
 
 save("my_output_file.txt", data_output)
