@@ -8,15 +8,16 @@ DATAPATH = os.path.join(PATH, DATA)
 
 data = {}
 
-def create_account(customer):
-    with open(DATAPATH, "w") as file_object:
+def load():
+    global data
+    with open(DATAPATH, "r") as file_object:
         data = json.load(file_object)
-        print(data)
+
+def create_account(customer):
+    
+    data[]
 
 def login():
-    pass
-
-def load():
     pass
 
 def quit():

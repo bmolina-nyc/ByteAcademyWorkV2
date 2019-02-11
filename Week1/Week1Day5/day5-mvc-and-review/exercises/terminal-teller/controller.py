@@ -31,7 +31,9 @@ def homepage():
 
 
 def logged_in():
-    view.logged_in_main_menu()
+    while True
+        view.logged_in_main_menu()
+        selection = 
 
 if __name__ == "__main__":
     run()
