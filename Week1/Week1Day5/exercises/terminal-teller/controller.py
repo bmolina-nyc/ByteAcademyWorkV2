@@ -6,12 +6,14 @@ def run():
     model.load()
     homepage()
 
-def create_account():
+
+def get_user_info():
     fname = view.get_first_name()   
     lname = view.get_last_name()
     pin = view.get_pin()
     confirmed_pin = view.confirm_pin()
     return [fname, lname, pin, confirmed_pin]
+
 
 def homepage():
     while True:
@@ -19,13 +21,14 @@ def homepage():
         selection = view.get_input()
 
         if selection != '1' and selection != '2' and selection != '3':
-            print("\nTry again!")
+            print("\nTry again! - Enter 1, 2 or 3")
         elif selection == '1':
-            customer = create_account()
+            customer = get_user_info()
             if customer[2] != customer[3]:
                 print("\nPins do not match, please try again\n")
             else:
                 model.create_account(customer)
+                customer = model.login_user(f"{customer[0]} {customer[1]}", f"{customer[3]}")
                 logged_in_homepage(customer)
                 return
         elif selection == '2':
@@ -45,8 +48,34 @@ def homepage():
 
 
 def logged_in_homepage(customer):
-    view.logged_in_homepage(customer)
-    selection = view.get_input()
+    while True:
+        view.logged_in_homepage(customer)
+        selection = view.get_input()
+        
+        if selection != '1' and selection != '2' and selection != '3' and selection != '4':
+            print("\nTry again! Enter 1, 2, 3 or 4")
+        elif selection == '1':
+            balance = model.check_balance(customer)
+            print(f'Your balance is {balance}')
+        elif selection == '2': 
+                funds_requested = view.withdraw_funds()  
+                if funds_requested.isdigit() and int(customer["Balance"]) > int(funds_requested):
+                    new_balance = model.withdraw_funds(customer, funds_requested)
+                    print(f"Your new balance is {new_balance}")
+                else:
+                    print("You have insufficient funds. Please try again")
+        elif selection == '3':
+            funds_to_deposit = view.deposit_funds()
+            if funds_to_deposit.isdigit():
+                new_balance = model.deposit_funds(customer, funds_to_deposit)
+                print(f"Your new balance is {new_balance}")
+            else:
+                print("Please enter a whole number amount")
+        elif selection == '4':
+            print('Goodbye!')
+            print()
+            homepage()
+            return 
 
     
 

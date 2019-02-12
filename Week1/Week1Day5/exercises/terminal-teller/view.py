@@ -51,3 +51,13 @@ def logged_in_homepage(customer):
     print("2) Withdraw funds")
     print("3) Deposit funds")
     print("4) Sign out")
+
+def withdraw_funds():
+    print()
+    print("How much would you like to withdraw?: ")
+    return input()
+
+def deposit_funds():
+    print()
+    print("How much would you like to deposit?: ")
+    return input()

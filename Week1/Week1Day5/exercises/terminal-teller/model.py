@@ -13,7 +13,6 @@ def load():
     with open(DATAPATH, "r") as file_object:
         data = json.load(file_object)
 
-
 def create_account(customer):
         cust_account = random.randint(10000,99999)
         cust_name = f"{customer[0]} {customer[1]}"
@@ -21,11 +20,10 @@ def create_account(customer):
                 "Name": f"{customer[0]} {customer[1]}",
                 "account_number": cust_account,
                 "PIN": f"{customer[2]}",
-                "Balance": 0
+                "Balance": 0.00
         }  
         with open(DATAPATH, "w") as file_object:
                json.dump(data, file_object, indent=2)
-        print(data)
 
 def login_user(name, pin):
    if name in data and data[name]["PIN"] == pin:
@@ -33,20 +31,16 @@ def login_user(name, pin):
    else:
            return False
 
+def check_balance(customer):
+        return customer["Balance"]
 
-def quit():
-    pass
+def withdraw_funds(customer, funds_requested):
+        new_balance = int(customer['Balance']) - int(funds_requested)
+        customer['Balance'] = new_balance
+        return customer['Balance']
 
-def get_balance():
-    pass
-
-
-def withdraw_funds():
-    pass
-
-def deposit_funds():
-    pass
-
-def logout():
-    pass
+def deposit_funds(customer, funds_to_deposit):
+    new_balance = int(customer["Balance"]) + int(funds_to_deposit)
+    customer["Balance"] = new_balance
+    return customer["Balance"]
 
