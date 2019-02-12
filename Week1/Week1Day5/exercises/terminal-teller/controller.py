@@ -21,11 +21,11 @@ def homepage():
         selection = view.get_input()
 
         if selection != '1' and selection != '2' and selection != '3':
-            print("\nTry again! - Enter 1, 2 or 3")
+            view.bad_selection()
         elif selection == '1':
             customer = get_user_info()
             if customer[2] != customer[3]:
-                print("\nPins do not match, please try again\n")
+                view.no_pin_match()
             else:
                 model.create_account(customer)
                 customer = model.login_user(f"{customer[0]} {customer[1]}", f"{customer[3]}")
@@ -39,11 +39,10 @@ def homepage():
                 logged_in_homepage(customer)
                 return
             else:
-                print()
-                print("Invalid Login - please try again")
+                view.invalid_login()
                 pass
         elif selection == '3':
-            print("Goodbye!")
+            view.goodbye()
             return 
 
 
@@ -53,7 +52,7 @@ def logged_in_homepage(customer):
         selection = view.get_input()
         
         if selection != '1' and selection != '2' and selection != '3' and selection != '4':
-            print("\nTry again! Enter 1, 2, 3 or 4")
+            view.bad_selection()
         elif selection == '1':
             balance = model.check_balance(customer)
             print(f'Your balance is {balance}')
@@ -72,8 +71,7 @@ def logged_in_homepage(customer):
             else:
                 print("Please enter a whole number amount")
         elif selection == '4':
-            print('Goodbye!')
-            print()
+            view.goodbye()
             homepage()
             return 
 

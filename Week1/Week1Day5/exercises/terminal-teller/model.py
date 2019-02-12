@@ -20,7 +20,7 @@ def create_account(customer):
                 "Name": f"{customer[0]} {customer[1]}",
                 "account_number": cust_account,
                 "PIN": f"{customer[2]}",
-                "Balance": 0.00
+                "Balance": 0
         }  
         with open(DATAPATH, "w") as file_object:
                json.dump(data, file_object, indent=2)
@@ -36,11 +36,19 @@ def check_balance(customer):
 
 def withdraw_funds(customer, funds_requested):
         new_balance = int(customer['Balance']) - int(funds_requested)
-        customer['Balance'] = new_balance
+        cust_name = customer["Name"]
+        update = {"Balance": new_balance} 
+        data[cust_name].update(update)
+        with open(DATAPATH, "w") as jsonFile:
+                json.dump(data, jsonFile, indent=2)           
         return customer['Balance']
 
 def deposit_funds(customer, funds_to_deposit):
     new_balance = int(customer["Balance"]) + int(funds_to_deposit)
-    customer["Balance"] = new_balance
+    cust_name = customer["Name"]
+    update = { "Balance": new_balance }
+    data[cust_name].update(update)
+    with open(DATAPATH, "w") as jsonFile:
+            json.dump(data, jsonFile, indent=2) 
     return customer["Balance"]
 

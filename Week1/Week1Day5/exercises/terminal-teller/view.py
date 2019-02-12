@@ -61,3 +61,22 @@ def deposit_funds():
     print()
     print("How much would you like to deposit?: ")
     return input()
+
+
+def bad_selection():
+    print()
+    print("Try again! - Enter correct number value only")
+
+def no_pin_match():
+    print()
+    print("Pins do not match, please try again")
+    print()
+
+def invalid_login():
+    print()
+    print("Invalid Login - please try again")
+    print()
+
+def goodbye():
+    print()
+    print("Goodbye!")
