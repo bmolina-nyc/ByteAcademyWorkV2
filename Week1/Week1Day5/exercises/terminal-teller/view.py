@@ -62,6 +62,13 @@ def deposit_funds():
     print("How much would you like to deposit?: ")
     return input()
 
+def insufficient_funds():
+    print()
+    print("You have insufficient funds please try again")
+
+def invalid_amount():
+    print()
+    print("Please enter a whole number amount")
 
 def bad_selection():
     print()
@@ -80,3 +87,4 @@ def invalid_login():
 def goodbye():
     print()
     print("Goodbye!")
+

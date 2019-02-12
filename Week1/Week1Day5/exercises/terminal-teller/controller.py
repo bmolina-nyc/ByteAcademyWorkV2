@@ -14,7 +14,6 @@ def get_user_info():
     confirmed_pin = view.confirm_pin()
     return [fname, lname, pin, confirmed_pin]
 
-
 def homepage():
     while True:
         view.show_homepage()
@@ -54,22 +53,19 @@ def logged_in_homepage(customer):
         if selection != '1' and selection != '2' and selection != '3' and selection != '4':
             view.bad_selection()
         elif selection == '1':
-            balance = model.check_balance(customer)
-            print(f'Your balance is {balance}')
+            model.check_balance(customer)
         elif selection == '2': 
                 funds_requested = view.withdraw_funds()  
-                if funds_requested.isdigit() and int(customer["Balance"]) > int(funds_requested):
-                    new_balance = model.withdraw_funds(customer, funds_requested)
-                    print(f"Your new balance is {new_balance}")
+                if funds_requested.isdigit() and int(customer["Balance"]) >= int(funds_requested):
+                    model.withdraw_funds(customer, funds_requested)
                 else:
-                    print("You have insufficient funds. Please try again")
+                    view.insufficient_funds()
         elif selection == '3':
             funds_to_deposit = view.deposit_funds()
             if funds_to_deposit.isdigit():
-                new_balance = model.deposit_funds(customer, funds_to_deposit)
-                print(f"Your new balance is {new_balance}")
+                model.deposit_funds(customer, funds_to_deposit)
             else:
-                print("Please enter a whole number amount")
+                view.invalid_amount()
         elif selection == '4':
             view.goodbye()
             homepage()

@@ -3,7 +3,7 @@
     "Name": "Bruce Molina",
     "account_number": 24930,
     "PIN": "1234",
-    "Balance": 1000
+    "Balance": 1
   },
   "Maria Molina 1234": {
     "Name": "Maria Molina 1234",
@@ -22,5 +22,11 @@
     "account_number": 35791,
     "PIN": "1234",
     "Balance": 156766
+  },
+  "homer simpson": {
+    "Name": "homer simpson",
+    "account_number": 12204,
+    "PIN": "1234",
+    "Balance": 3423423423432
   }
 }

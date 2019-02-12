@@ -32,7 +32,8 @@ def login_user(name, pin):
            return False
 
 def check_balance(customer):
-        return customer["Balance"]
+        balance = customer["Balance"]
+        print(f"Your balance is {balance}")
 
 def withdraw_funds(customer, funds_requested):
         new_balance = int(customer['Balance']) - int(funds_requested)
@@ -41,7 +42,7 @@ def withdraw_funds(customer, funds_requested):
         data[cust_name].update(update)
         with open(DATAPATH, "w") as jsonFile:
                 json.dump(data, jsonFile, indent=2)           
-        return customer['Balance']
+        print(f"Your new balance is {new_balance}") 
 
 def deposit_funds(customer, funds_to_deposit):
     new_balance = int(customer["Balance"]) + int(funds_to_deposit)
@@ -50,5 +51,5 @@ def deposit_funds(customer, funds_to_deposit):
     data[cust_name].update(update)
     with open(DATAPATH, "w") as jsonFile:
             json.dump(data, jsonFile, indent=2) 
-    return customer["Balance"]
+    print(f"Your new balance is {new_balance}") 
 
