@@ -5,7 +5,7 @@ def new_csv():
         file_lines = file_object.readlines()
 
     with open('updated_csv.csv', 'w', newline="") as csvfile:
-        fieldnames = ['Player Name |', 'Games Played |', '(Points*(60/TOI))*(82/GP) |', '(Blocks*(60/TOI)) * 82/GP |', '(Hits*(60/TOI)) * 82/GP |']
+        fieldnames = ['Player Name |', 'Games Played |', 'Points |', 'Blocks |', 'Hits |']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for row in file_lines:
@@ -21,7 +21,7 @@ def new_csv():
                 approx_blocks_82 = (blocks * (60//TOI)) * (82//GP)
                 approx_hits_82 = (hits * (60//TOI)) * (82//GP)
 
-                writer.writerow({'Player Name |': row[1], 'Games Played |': row[5], '(Points*(60/TOI))*(82/GP) |': approx_points_82 , '(Blocks*(60/TOI)) * 82/GP |': approx_blocks_82 , '(Hits*(60/TOI)) * 82/GP |': approx_hits_82})
+                writer.writerow({'Player Name |': row[1], 'Games Played |': row[5], 'Points |': approx_points_82 , 'Blocks |': approx_blocks_82 , 'Hits |': approx_hits_82})
 
 
 print(new_csv())

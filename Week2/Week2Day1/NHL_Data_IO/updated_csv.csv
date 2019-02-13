@@ -1,4 +1,4 @@
-Player Name |,Games Played |,(Points*(60/TOI))*(82/GP) |,(Blocks*(60/TOI)) * 82/GP |,(Hits*(60/TOI)) * 82/GP |
+Player Name |,Games Played |,Points |,Blocks |,Hits |
 Justin Abdelkader,2,0,0,410
 Chris Chelios*,69,0,0,0
 Dan Cleary,63,0,0,0
