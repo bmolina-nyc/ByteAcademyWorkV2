@@ -40,17 +40,18 @@ def login_name():
 def login_pin():
     print("Please enter your PIN: ", end="")
     print()
-    return input()
+    return input()4000
 
 def logged_in_homepage(customer):
     print()
-    print(f"Hello - {customer['Name']}")
+    print(f"Hello - {customer['Name']} - Acct.No: {customer['account_number']}")
+    print(f"Your balance is currently {customer['Balance']}")
+    print()
     print("How can we help you today?")
     print()
-    print("1) Check balance")
-    print("2) Withdraw funds")
-    print("3) Deposit funds")
-    print("4) Sign out")
+    print("1) Withdraw funds")
+    print("2) Deposit funds")
+    print("3) Sign out")
 
 def withdraw_funds():
     print()

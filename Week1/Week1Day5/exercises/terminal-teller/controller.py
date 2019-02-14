@@ -26,9 +26,8 @@ def homepage():
             if customer[2] != customer[3]:
                 view.no_pin_match()
             else:
-                model.create_account(customer)
-                customer = model.login_user(f"{customer[0]} {customer[1]}", f"{customer[3]}")
-                logged_in_homepage(customer)
+                new_customer = model.create_account(customer)
+                logged_in_homepage(new_customer)
                 return
         elif selection == '2':
             name = view.login_name()
@@ -53,20 +52,18 @@ def logged_in_homepage(customer):
         if selection != '1' and selection != '2' and selection != '3' and selection != '4':
             view.bad_selection()
         elif selection == '1':
-            model.check_balance(customer)
-        elif selection == '2': 
-                funds_requested = view.withdraw_funds()  
-                if funds_requested.isdigit() and int(customer["Balance"]) >= int(funds_requested):
-                    model.withdraw_funds(customer, funds_requested)
-                else:
-                    view.insufficient_funds()
-        elif selection == '3':
+            funds_requested = view.withdraw_funds()  
+            if funds_requested.isdigit() and int(customer["Balance"]) >= int(funds_requested):
+                model.withdraw_funds(customer, funds_requested)
+            else:
+                view.insufficient_funds()
+        elif selection == '2':
             funds_to_deposit = view.deposit_funds()
             if funds_to_deposit.isdigit():
                 model.deposit_funds(customer, funds_to_deposit)
             else:
                 view.invalid_amount()
-        elif selection == '4':
+        elif selection == '3':
             view.goodbye()
             homepage()
             return 

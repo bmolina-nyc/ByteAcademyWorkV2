@@ -1,38 +1,20 @@
 {
-  "Bruce Molina": {
+  "42538": {
+    "Name": "B ",
+    "account_number": 42538,
+    "PIN": "",
+    "Balance": 4800
+  },
+  "84393": {
+    "Name": "a a",
+    "account_number": 84393,
+    "PIN": "1234",
+    "Balance": 222252568
+  },
+  "68069": {
     "Name": "Bruce Molina",
-    "account_number": 24930,
+    "account_number": 68069,
     "PIN": "1234",
-    "Balance": 1
-  },
-  "Maria Molina 1234": {
-    "Name": "Maria Molina 1234",
-    "account_number": 22708,
-    "PIN": "1234",
-    "Balance": 2000
-  },
-  "ty law": {
-    "Name": "ty law",
-    "account_number": 95152,
-    "PIN": "1234",
-    "Balance": 1033
-  },
-  "John Saunders": {
-    "Name": "John Saunders",
-    "account_number": 35791,
-    "PIN": "1234",
-    "Balance": 156766
-  },
-  "homer simpson": {
-    "Name": "homer simpson",
-    "account_number": 12204,
-    "PIN": "1234",
-    "Balance": 3423423423432
-  },
-  "Cait Dempsey": {
-    "Name": "Cait Dempsey",
-    "account_number": 72840,
-    "PIN": "1234",
-    "Balance": 500000
+    "Balance": 4668
   }
 }
