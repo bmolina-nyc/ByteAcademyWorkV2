@@ -8,7 +8,6 @@ BLANK = " "
 
 class Game:
     def __init__(self):
-        
         #initialize the players
         print("Player 1 - Please enter your name")
         name1 = input()
