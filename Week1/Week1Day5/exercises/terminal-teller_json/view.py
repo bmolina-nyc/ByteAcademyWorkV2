@@ -40,7 +40,7 @@ def login_name():
 def login_pin():
     print("Please enter your PIN: ", end="")
     print()
-    return input()4000
+    return input()
 
 def logged_in_homepage(customer):
     print()

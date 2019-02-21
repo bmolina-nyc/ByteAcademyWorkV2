@@ -15,6 +15,7 @@ def load():
 
 def create_account(customer):
         cust_account = random.randint(10000,99999)
+        cust_account = str(cust_account)
         cust_name = f"{customer[0]} {customer[1]}"
         pin = f"{customer[2]}"
         data[cust_account] = {
@@ -42,7 +43,7 @@ def check_balance(customer):
 def withdraw_funds(customer, funds_requested):
         new_balance = int(customer['Balance']) - int(funds_requested)
         user_account_number = customer['account_number']
-        data[user_account_number]["Balance"] = new_balance
+        data[str(user_account_number)]["Balance"] = new_balance
         with open(DATAPATH, "w") as jsonFile:
                 json.dump(data, jsonFile, indent=2)           
         print(f"Your new balance is {new_balance}") 
@@ -50,7 +51,7 @@ def withdraw_funds(customer, funds_requested):
 def deposit_funds(customer, funds_to_deposit):
         new_balance = int(customer["Balance"]) + int(funds_to_deposit)
         user_account_number = customer['account_number']
-        data[user_account_number]["Balance"] = new_balance
+        data[str(user_account_number)]["Balance"] = new_balance
         with open(DATAPATH, "w") as jsonFile:
             json.dump(data, jsonFile, indent=2) 
         print(f"Your new balance is {new_balance}") 

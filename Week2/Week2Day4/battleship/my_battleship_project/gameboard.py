@@ -14,7 +14,7 @@ class Gameboard:
         self.p1_hp = 1
         self.p2_hp = 1
         self.gridsize = int(gridsize)
-
+      
         for _ in range(self.gridsize):
             row = []
             for _ in range(self.gridsize):
@@ -25,15 +25,9 @@ class Gameboard:
             self.p2_boards[1].append(row.copy())
         self.p1_boards[0][randint(0,self.gridsize-1)][randint(0,self.gridsize-1)] = SHIP
         self.p2_boards[0][randint(0,self.gridsize-1)][randint(0,self.gridsize-1)] = SHIP
-
-    
+      
     def game_turn(self):
         return self.turn 
-
-    def test_display(self):
-        print(list(range(1, len(self.p1_boards[0])+1)))
-        for row in self.p1_boards[0]:
-            print(row)
 
     def display_own_board(self, name):
         print()
