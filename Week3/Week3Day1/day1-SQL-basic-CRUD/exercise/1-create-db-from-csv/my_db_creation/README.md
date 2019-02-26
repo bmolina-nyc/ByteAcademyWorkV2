@@ -12,7 +12,7 @@
 * Plan out your tables. 
 	* You will have a users table and a phone numbers table.
 	* A user has many phone numbers
-* Use the [SQL Schema Designer](http://ondras.zarovi.cz/sql/demo/) to plan out your ERDS
+* Use the [SQL Schema Designer](country) to plan out your ERDS
 	* Push up your ERD's to this folder`(in your own branch)` so I can view them
 
 ***If the Schema Designer is giving you problems make a drawing of your ERD. Take a picture of it with your phone and then save it and send it to GITHUB***
