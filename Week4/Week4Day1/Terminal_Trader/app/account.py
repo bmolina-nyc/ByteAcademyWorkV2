@@ -5,7 +5,7 @@ from app.util import get_price
 from app.position import Position
 from app.trade import Trade
 from app.util import hash_password
-
+from app.view import View 
 
 class Account(ORM):
     tablename = "accounts"
@@ -30,7 +30,11 @@ class Account(ORM):
 
 
     def get_positions(self):
-        return Position.select_many_where("WHERE accounts_pk = ?", (self.pk, ))
+        view = View()
+        positions = Position.select_many_where("WHERE accounts_pk = ? AND shares", (self.pk, ))
+        for position in positions:
+            view.positions(self, position)
+            
 
     def get_position_for(self, ticker):
         """ return a specific Position object for the user. if the position does not
@@ -48,25 +52,32 @@ class Account(ORM):
 
     def trades_for(self, ticker):
         """ return all of a user's trades for a given ticker """
-        return Trade.select_many_where("WHERE ticker = ? AND accounts_pk = ?", (ticker, self.pk))
+        return Trade.select_many_where("WHERE accounts_pk = ? AND ticker = ?", (self.pk, ticker))
 
-    def buy(self, ticker, amount):
+    def buy(self, ticker, amount, current_price, total_cost):
         """ make a purchase. raise KeyError for a non-existent stock and
         ValueError for insufficient funds. will create a new Trade and modify
         a Position and alters the user's balance. returns nothing """
-        pass
+        position = self.get_position_for(ticker)
+    
+        trade = Trade(accounts_pk = self.pk, ticker=ticker, price=current_price, volume = amount)
+        self.balance -= total_cost
+        position.shares += int(amount)
+        position.save()
+        trade.save()
+        self.save()
+        
 
     def sell(self, ticker, amount):
         """ make a sale. raise KeyErrror for a non-existent stock and
         ValueError for insufficient shares. will create a new Trade object,
         modify a Position, and alter the self.balance. returns nothing."""
         position = self.get_position_for(ticker)
-        if amount > position.shares:
-            raise ValueError('insufficient shares')
-        price = get_price(ticker)
-        trade = Trade(accounts_pk = self.pk, ticker=ticker, price=price, volume=-amount)
-        position.shares -= amount
-        self.balance += amount * price
+        
+        price = get_price(ticker)[1]
+        trade = Trade(accounts_pk = self.pk, ticker=ticker, price=price, volume= -int(amount))
+        position.shares -= int(amount)
+        self.balance += int(amount) * price
         position.save()
         trade.save()
         self.save()
