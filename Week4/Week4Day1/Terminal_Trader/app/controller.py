@@ -93,9 +93,9 @@ def logged_in_homepage(account):
 
             total_cost = int(purchase_amount) * int(ticker_price[1])
             
-            if total_cost < account.balance:
+            if total_cost < int(account.balance):
                 Account.buy(account, ticker, purchase_amount, ticker_price[1], total_cost)
-            elif total_cost > account.balance:
+            elif int(total_cost) > int(account.balance):
                 view.not_enough_money()
                 time.sleep(3)
 

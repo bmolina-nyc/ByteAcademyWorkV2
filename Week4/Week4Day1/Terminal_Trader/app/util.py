@@ -32,3 +32,4 @@ def get_price(ticker):
     """ WEEK 4 TODO: get price from IEXTrading API """
     # return ord(ticker[0]) * 5.731
 
+# https://iextrading.com/developer/docs/#getting-started
