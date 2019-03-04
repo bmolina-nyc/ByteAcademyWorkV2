@@ -34,3 +34,4 @@ def api_download():
 
 # api_download()
 #goog, aapl, tsla
+#good to go
