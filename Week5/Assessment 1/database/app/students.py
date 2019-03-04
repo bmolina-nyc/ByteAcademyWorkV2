@@ -73,7 +73,6 @@ class Students(ORM):
             print(f"NAME: {row.fname} {row.lname} | SCHOOL: {row.school} | ID:{row.id} |  GPA:{row.gpa}")
 
 
-if __name__ == "__main__":
-    student = Students()
-    student.update_schools()
-    student.get_students_by()
+student = Students()
+student.update_schools()
+student.get_students_by()
