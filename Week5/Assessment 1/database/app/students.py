@@ -20,6 +20,7 @@ class Students(ORM):
     def one_student(cls, pk):
         return cls.get_one("WHERE pk = ?", (pk,))
 
+    #UPDATE ANY STUDENTS SCHOOL
     @classmethod
     def update_schools(cls):
         students = cls.all_students()
@@ -57,7 +58,8 @@ class Students(ORM):
                         student.save()
                         print("student updated")
                         return 
-            
+    
+    #GET GPA'S
     @classmethod
     def get_students_by(cls):
         school = input("Type the school NYC or Houston ")
@@ -69,3 +71,9 @@ class Students(ORM):
         for row in results:
             print("here are your results")
             print(f"NAME: {row.fname} {row.lname} | SCHOOL: {row.school} | ID:{row.id} |  GPA:{row.gpa}")
+
+
+if __name__ == "__main__":
+    student = Students()
+    student.update_schools()
+    student.get_students_by()
