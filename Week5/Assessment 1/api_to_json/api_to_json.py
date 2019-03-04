@@ -19,9 +19,12 @@ def api_call(ticker):
 def api_download():
     data = {}
     while True:
-        ticker = input("enter a ticker symbol ")
+        ticker = input("enter a ticker symbol or q to quit ")
         payload = api_call(ticker)
-        if not payload:
+        if ticker.lower() == "q":
+            print("done")
+            break
+        elif not payload:
             print("please try again ")
             continue
         else:
@@ -32,5 +35,6 @@ def api_download():
                 json.dump(data, json_file)
 
 
-# api_download()
+if __name__ == "__main__":
+    api_download()
 #goog, aapl, tsla
