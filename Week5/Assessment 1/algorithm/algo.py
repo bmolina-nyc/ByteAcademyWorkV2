@@ -18,12 +18,6 @@ def sorting(MyList):
         else:
             continue
 
-    
-
-    
-   
-   
-
 # print(sorting([1, 0, 7, 2, 0, 3, 9, 0, 4]))
 # [1, 7, 2, 3, 9, 4, 0, 0, 0]
 
