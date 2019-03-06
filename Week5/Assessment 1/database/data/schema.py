@@ -18,7 +18,9 @@ def schema(dbpath=DBPATH):
             lname VARCHAR(128),
             school VARCHAR(128),
             id VARCHAR(128),
-            gpa FLOAT
+            gpa FLOAT,
+            campus_pk INTEGER, 
+            FOREIGN KEY(campus_pk) REFERENCES campuses(pk)
         );"""
         cur.execute(SQL)
 
@@ -27,11 +29,8 @@ def schema(dbpath=DBPATH):
 
         SQL = """CREATE TABLE campuses(
             pk INTEGER PRIMARY KEY AUTOINCREMENT,
-            student_pk INTEGER, 
             city VARCHAR(128),
-            state VARCHAR(20),
-            FOREIGN KEY(student_pk) REFERENCES students(pk),
-            UNIQUE(student_pk)
+            state VARCHAR(20)
         );"""
         cur.execute(SQL)
 

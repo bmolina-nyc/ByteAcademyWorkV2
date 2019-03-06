@@ -2,7 +2,7 @@ from app.orm import ORM
 
 class Students(ORM):
     tablename = 'students'
-    fields = ["fname", "lname", "school", "id", "gpa"]
+    fields = ["fname", "lname", "school", "id", "gpa", "campus_pk"]
 
     def __init__(self, *args, **kwargs):
         self.pk = kwargs.get('pk')
@@ -11,6 +11,7 @@ class Students(ORM):
         self.school = kwargs.get('school')
         self.id = kwargs.get('id')
         self.gpa = kwargs.get('gpa')
+        self.campus_pk = kwargs.get('campus_pk')
 
     @classmethod
     def all_students(cls):
@@ -50,11 +51,13 @@ class Students(ORM):
                 else: 
                     if student.school == "NYC":
                         student.school = "Houston"
+                        student.campus_pk = 2
                         student.save()
                         print("student updated")
                         return 
                     elif student.school == "Houston":
                         student.school = "NYC"
+                        student.school_pk = 1
                         student.save()
                         print("student updated")
                         return 
@@ -73,6 +76,6 @@ class Students(ORM):
             print(f"NAME: {row.fname} {row.lname} | SCHOOL: {row.school} | ID:{row.id} |  GPA:{row.gpa}")
 
 
-student = Students()
-student.update_schools()
-student.get_students_by()
+# student = Students()
+# student.update_schools()
+# student.get_students_by()

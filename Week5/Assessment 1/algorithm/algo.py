@@ -11,9 +11,6 @@ def sorting(MyList):
                 idx = MyList.index(el)
                 pop = MyList.pop(idx)
                 MyList.append(pop)
-                print(check)
-                print(MyList)
-                input()
             elif el != 0:
                 continue   
             if MyList[-list_check:] == check:
