@@ -19,3 +19,5 @@ class Position(ORM):
         """ current value of this postion at the current market rate. returns
         a float """
         return 0.0
+
+    
