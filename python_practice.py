@@ -156,3 +156,22 @@ def largest_palindrome():
     return palindrome
 
 # print(largest_palindrome())
+
+def smallest_multiple_btwn(num1, num2):
+    result = 0
+    number = 2520
+    divisor = 20
+    while True:
+        if number % divisor == 0 and divisor == 2:
+            result == number
+            break
+        elif number % divisor == 0 :
+            divisor -= 1
+            continue 
+        else: 
+            number += 20
+            divisor = 20
+            print(number)
+    return result
+
+# print(smallest_multiple_btwn(1,20))
