@@ -63,16 +63,6 @@ class Account(ORM):
             return Position(ticker=ticker, accounts_pk=self.pk, shares=0)
         return position
 
-    # gregs method 
-    # def get_position_for_json(self, ticker):
-    #     position = {}
-    #     one_position = Position.select_one_where(
-    #         "WHERE ticker = ? AND accounts_pk = ?", (ticker, self.pk))
-    #     if position is None:
-    #         return Position(ticker=ticker, accounts_pk=self.pk, shares=0)
-    #     position[ticker] = {"ticker": one_position[ticker]['ticker'], "shares": one_position[ticker]['shares']}
-    #     return position
-
     def get_trades(self):
         """ return all of the user's trades ordered by time. returns a list of
         Trade objects """
