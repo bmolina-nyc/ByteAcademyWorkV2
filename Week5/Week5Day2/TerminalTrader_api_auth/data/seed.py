@@ -21,7 +21,7 @@ def seed(dbpath=DBPATH):
     sell_trade.save()
 
     tsla_position = Position(ticker='tsla', shares=5, accounts_pk=mike_bloom.pk)
-    appl_position = Position(ticker='appl', shares=5, accounts_pk=mike_bloom.pk)
+    appl_position = Position(ticker='aapl', shares=5, accounts_pk=mike_bloom.pk)
 
     tsla_position.save()
     appl_position.save()
