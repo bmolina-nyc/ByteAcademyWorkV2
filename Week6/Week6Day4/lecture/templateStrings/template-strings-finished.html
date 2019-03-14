@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings!</title>
+</head>
+<body>
+<script>
+  const person = {
+    name: 'Gabby',
+    job: 'Web Developer',
+    city: 'Williamsburg',
+    bio: 'Gabby is a former Byte student who likes to teach web development with JS and React!',
+  };
+
+  // you must use backticks in order to use this type of template string
+  // you may include valid HTML in between the JS objects
+  const markup = `
+    <div class="person">
+      <h2>
+        ${person.name}
+        <span class="job">${person.job}</span>
+      </h2>
+      <p class="location">${person.city}</p>
+      <p class="bio">${person.bio}</p>
+    </div>
+  `;
+  
+  // innerHTML gets or sets the HTML or XML markup contained within the element. It replaces the current HTML on the page
+  console.log(markup);
+  document.body.innerHTML = markup;
+
+</script>
+</body>
+</html>

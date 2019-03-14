@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>JavaScript program to calculate multiplication and division of two numbers </title>
+    <style type="text/css">
+        body {
+            margin: 30px;
+        }
+        .result {
+            padding: 10px;
+        }
+        .button {
+            margin: 20px;
+        }
+        .input {
+            margin: 10px; 
+        }
+    </style> 
+</head>
+<body>
+    <!-- Similarly to the getElementById exercise, create a basic calculator which takes two inputs 
+    then either multiplies or divides the two given values -->
+    <form class="input">
+        1st Number : <input type="text" class="input" id="firstNumber" /><br>
+        2nd Number: <input type="text" class="input" id="secondNumber" /><br>
+        <input type="button" class ="button" onClick="multiplyBy()" Value="Multiply" />
+        <input type="button" class ="button" onClick="divideBy()" Value="Divide" />
+    </form>
+    <div class ="result">
+        The Result is : <br>
+        <span id = "result"></span>
+    </div>  
+<script>
+    function multiplyBy() {
+        let num1 = document.getElementById("firstNumber").value;
+        let num2 = document.getElementById("secondNumber").value;
+        document.getElementById("result").innerHTML = num1 * num2;
+    }
+    
+    function divideBy() {
+        let num1 = document.getElementById("firstNumber").value;
+        let num2 = document.getElementById("secondNumber").value;
+        document.getElementById("result").innerHTML = num1 / num2;
+    }   
+</script>  
+</body>
+</html>

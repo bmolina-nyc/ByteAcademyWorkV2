@@ -135,3 +135,15 @@ def accounts():
             "api-key": account.api_key
         }
     return jsonify({"accounts": accounts_dic})
+
+@app.route('/api/testing', methods=['GET'])
+def testing(): 
+    accounts_dic = {}
+    accounts = Account.all()
+    for account in accounts:
+        accounts_dic[account.username] = {
+            # "username": account.username,
+            "balance": account.balance,
+            "api-key": account.api_key
+        }
+    return jsonify({"accounts": accounts_dic})

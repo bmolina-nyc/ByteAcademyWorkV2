@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow Functions & Event Listeners</title>
+</head>
+<body>
+  <!-- Normally, we would create a new css file and import that into the HTML file, but we will work within the page here -->
+  <style>
+    /* here we now create classes for the different div containers */
+    /* wrap will contain the box and the box will have animations for .opening and .open */
+    /* display: flex makes the wrap class and its components flex boxes */
+    .wrap {
+      min-height: 100vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      font-weight: 100;
+      color:white;
+    }
+
+    /* Here we set a default picture as an image - feel free to add whatever link */
+    /* Transition relates to when each of the sides are animated */
+    .box {
+      background:black url(https://unsplash.it/1500/1500?image=560&blur=0.5) center fixed no-repeat;
+      width:50px;
+      height:50px;
+      padding:50px;
+      transition: width 0.2s, height 0.6s;
+      position: relative;
+    }
+
+    /* This the additional class for the box when it has been clicked opened */
+    .box.opening {
+      width:500px;
+      height:500px;
+    }
+
+    /* This is the css class for the username */
+    /* Transform:translateX states from what location the text is currently coming from */
+    .box h2 {
+      position: absolute;
+      width:100%;
+      font-size: 100px;
+      transform:translateX(-200%);
+      transition: all 0.5s;
+      top:0;
+    }
+
+    /* This is the css class for the paragraph tag*/
+    .box p {
+      position: absolute;
+      width:100%;
+      transform:translateX(200%);
+      transition: all 0.5s;
+      bottom:0;
+    }
+
+    .box.open > * {
+      transform:translateX(0%);
+    }
+  </style>
+
+  <div class="wrap">
+    <div class="box">
+      <h2>Tan Man</h2>
+      <p class="social">IG: @gabriel_v_tan</p>
+    </div>
+  </div>
+
+  <script>
+      // documnet.querySelector is how we reference specific html div tags
+      // we have to add an EventListener in order to listen to a click action
+      // in this case, the arrow function should not be used because 
+      // we need the key word to reference the actual box that got clicked
+      const box = document.querySelector('.box')
+      box.addEventListener('click', function(){
+          let first = 'opening'
+          let second = 'open'
+
+          // whenever we use 'this' we need to make sure that we are binding it within the function, otherwise it 
+          // will revert the binding back to the windows
+          // You need to set up the reverse for the close of the box.   
+
+          // Using classList is a convenient alternative to accessing an element's list of classes as a 
+          // space-delimited string via element.className
+          // IN GENERAL, you DO NOT use arrow functions if you need to use `this` within the scope of a given function
+          if(this.classList.contains(first)) {
+              //switch them
+              [first, second] = [second, first];
+          }
+          // this will print the box as it is being called 
+          console.log(this) 
+
+          // the toggle method allows us to switch between css classes 
+          this.classList.toggle(first);
+          setTimeout(()=>{
+              this.classList.toggle(second);
+          }, 250);
+      });
+  </script>
+
+</body>
+</html>

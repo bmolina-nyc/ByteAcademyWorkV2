@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Function Basics</title>
+</head>
+<body>
+    <div>
+        PLEASE VIEW THE PAGE SOURCE BY CLICKED F12 or RIGHT CLICKING ON THE PAGE AND SELECTING INSPECT 
+    </div>
+<script>
+
+// Now lets get started by learning some basic control flow 
+let userName = 'Gabby';
+let knowsJavaScript = true;
+
+if (knowsJavaScript && userName) {
+  console.log('Great, ' + userName + '! Get ready to practice your JavaScript!');
+} else if (knowsJavaScript) {
+  console.log('Great! Get ready to practice your JavaScript!');
+} else if (userName) {
+  console.log('Great, ' + userName + '! Get ready to learn something new!');
+} else {
+  console.log('Great! Get ready to learn something new!');
+}
+
+
+// Conditional state with a negative variable 
+let isPhoneCharged = true; 
+if (!isPhoneCharged) {
+  console.log('Plug in your phone!');
+} else {
+  console.log('No need to charge!');
+}
+
+//Logical Operators && and ||
+let moonPhase = 'full';
+let isFoggyNight = false;
+
+if (moonPhase === 'full' || isFoggyNight === true){
+  console.log('Howl!');  
+} else if (moonPhase === 'mostly full'){
+  console.log('Arms and legs are getting hairier');
+} else if (moonPhase === 'mostly new'){
+  console.log('Back on two feet');
+} else {
+  console.log('Invalid moon phase')
+}
+
+
+//Ternary Operators provides a way to shorten simple if/else statements
+// the '?' this question mark checks if the conditional is truthy
+// : a colon separates the two different blocks of code that can be executed
+let isLocked = false;
+
+isLocked ? console.log('You will need a key to open the door.'):
+  console.log('You will not need a key to open the door.');
+
+let isCorrect = true;
+
+isCorrect ? console.log('Correct!'):
+  console.log('Incorrect!');
+
+let favoritePhrase = 'Love That!';
+
+favoritePhrase === 'Love That!' ? console.log('I love that!'):
+  console.log("I don't love that!");
+
+
+
+// Now let's go over Template Strings  
+const dog_name = 'Snickers';
+const dog_age = 2;
+// these are template literals with backticks. 
+// this allows us to insert template strings with the ${} syntax
+// you can also run straight JS functions within the curly brackets
+const sentence = `My dog ${dog_name} is ${dog_age * 7} years old.`;
+console.log(sentence);
+  
+userName ? console.log(`Hello, ${userName}`):
+	console.log('Hello!')
+
+
+
+// Now let's combine all these different concepts together by creating a magic eigth ball
+let userQuestion = 'Will I be able to learn JavaScript?';
+userQuestion ? console.log(`The user asked: ${userQuestion}`):
+	console.log('Enter a question');
+
+let randomNumber = Math.floor(Math.random()*8);
+let eightBall = randomNumber;
+
+switch (eightBall){
+  case 0:
+    console.log('It is certain');
+    break;
+  case 1:
+    console.log('It is decidedly so');
+    break;
+  case 2:
+    console.log('Reply hazy try again');
+    break;
+  case 3:
+    console.log('Cannot predict now');
+    break;
+  case 4:
+    console.log('Do not count on it');
+    break;
+  case 5:
+    console.log('My sources say no');
+    break;
+  case 6:
+    console.log('Outlook not so good');
+    break;
+  default:
+  console.log('Signs point to yes');
+    break;
+}
+
+</script>   
+</body>
+</html>

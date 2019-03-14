@@ -1,0 +1,12 @@
+header {
+    background-color: gray;
+}
+
+header p {
+    color: #aaaaaa;
+}
+
+.wrapper {
+    width: 800px;
+    margin: 0px auto 0px auto;
+}

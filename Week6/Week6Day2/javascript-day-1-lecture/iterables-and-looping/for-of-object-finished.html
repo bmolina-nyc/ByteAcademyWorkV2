@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iterables & Looping</title>
+</head>
+<body>
+
+<script>
+  const apple = {
+    color: 'Red',
+    size: 'Medium',
+    weight: 50,
+    sugar: 10
+  };
+
+  // since objects are not iterable, we have to add an index position to access the value for a given key 
+  for (const prop in apple) {
+    const value = apple[prop];
+    console.log(value, prop);
+  }
+
+</script>
+</body>
+</html>

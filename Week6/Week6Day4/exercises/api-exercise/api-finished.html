@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice with Promises</title>
+    <!-- Feel free to use the attached CSS file or make your own - you can use this as a hint to see what html components were created -->
+  <link rel="stylesheet" href="api.css">
+</head>
+<body>
+    <!-- Add the appropriate HTML for input, submission and display -->
+    <form class="search-ticker">
+        <h2>
+            Search for a Ticker:
+        </h2>
+        <input type="search" name="tickersearch">
+        <input type="submit">
+    </form>
+    <div class="ticker-price">
+        Display Value from ticker 
+    </div>
+    <script>
+        // Here we will create our own version of stock look up prices on terminal trader
+        // You will need to use most of the following lessons you have learned in order to accomplish this task 
+        // Use querySelector or getElementById to get the input value and display the results
+        const searchTicker = document.querySelector('.search-ticker');
+        const tickerPrice = document.querySelector('.ticker-price');
+        
+        // create a function which uses a promise to to reach out to the IEX API 
+        // use the following link as your endpoint - https://api.iextrading.com/1.0/stock/[TICKER]/quote
+        // make sure to preventDefault so that the console doesn't keep re-rendering 
+        // make sure to either resolve or reject the promise
+        // also make sure to parse out the data correctly - hint - JSON format 
+        function findMatch(e) {
+            e.preventDefault();
+            const ticker = (this.querySelector('[name=tickersearch]')).value
+            const p = new Promise((resolve, reject) => {
+            let endpoint = `https://api.iextrading.com/1.0/stock/${ticker}/quote`;
+            const postPromise = fetch(endpoint)
+                if (postPromise) {
+                    resolve(postPromise)
+                } else {
+                    reject(Error('Errr something went wrong...'))
+                }
+            })
+            p
+                .then(blob => blob.json())
+                .then(data => {showPrice(data)})
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+        
+        // Now you need to create a function which will allow you to show the following data
+        // closing price, sector, 52 week high, 52 week low, difference in high and low 
+        // You will also need to use the innerHTML method to render the information 
+        function showPrice (price) {
+            console.log(price)
+            let difference = price.week52High - price.week52Low
+            const html = `
+            <ul>
+                <li>
+                The closing price of ${price.companyName} is: ${price.close} 
+                </li>
+                <li>
+                The primary industry is ${price.sector}
+                </li>
+                <li>
+                The 52-week high is ${price.week52High}
+                </li>
+                <li>
+                The 52-week low is ${price.week52Low}
+                </li>
+                <li>
+                Which is a difference of $ ${difference}
+                </li>
+
+            </ul>
+            `;
+            tickerPrice.innerHTML = html;
+        }
+
+        // Make sure to add an event listener to make this all work out
+        searchTicker.addEventListener('submit', findMatch);
+
+    </script>  
+</body>
+</html>

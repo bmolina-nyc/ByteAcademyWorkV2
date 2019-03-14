@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>API start</title>
+        <!-- <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css" /> -->
+        <!-- <link rel="stylesheet" href="/static/style.css" /> -->
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1> Stock Lookup </h1>
+                <hr />
+                <form id="form">
+                    <div class="row">
+                        <label for="ticker">Ticker Symbol</label>
+                        <input name="ticker" id="ticker" placeholder="ticker" required />
+                    </div>
+                    <div class="row">
+                        <button name="getprice" id="getprice">Get Price</button>
+                    </div>
+                </form>
+                <hr>
+                <div class="priceDisplay"><span class="display"></span></div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </body>
+    <script src="/static/script.js"></script>
+</html>
