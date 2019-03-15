@@ -9,6 +9,7 @@
         PLEASE VIEW THE PAGE SOURCE BY CLICKED F12 or RIGHT CLICKING ON THE PAGE AND SELECTING INSPECT 
     </div>
 <script>
+
     // Our code will break the game into four parts:
     // 1) Get the user's choice.
     // 2) Get the opponent's choice.
@@ -17,15 +18,78 @@
 
     // Get User Input
     // Create a method for getting user input. You can use if statements or switch statements. 
+    let turn = 0
+    
+    let user_input = () =>{
+        response = prompt("Please choose Rock(r), Paper(p), or Scissors(s)")
+    }
 
+    let input_check = (response) => {
+        response = response.toLowerCase()
+        if (response !== "rock" || response !== "r"|| response !== "scissors" || response !== "s" || response !== "paper" || response !== "p") {
+            return false 
+        } 
+        return true 
+    }
 
     // Get random computer input
     // Think about the built in Math JS methods 
-    
+    let computer_input = () => {
+        let  getRandom = (min, max)=> {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+        let choices = ["r", "p", "s"]
+        return choices[getRandom(0,2)]
+    }
+
+    let game_turn = () => {
+        turn += 1 
+    }
+
+    let win = (user_input, computer_input) => {
+        if ((user_input === "rock" || user_input === "r") && computer_input === "s"){
+            console.log("Rock Beats Scissors!")
+            return true
+        } else if ((user_input === "rock" || user_input == "r") && computer_input === "p"){
+            console.log("Paper Beats Rock!")
+            return true
+        } else if ((user_input === "rock" || user_input === "r") && computer_input === "r"){
+            console.log("You both chose rock! - Try again?")
+            return true
+        } else if ((user_input === "paper" || user_input === "p") && computer_input === "r"){
+            console.log("Paper Beats Rock!")
+            return true
+        } else if ((user_input === "paper" || user_input === "p") && computer_input === "s"){
+            console.log("Scissors Beats Paper!")
+            return true
+        } else if ((user_input === "paper" || user_input === "p") && computer_input === "p"){
+            console.log("You both chose paper! - Try again?")
+            return true
+        } else if ((user_input === "scissors" || user_input === "s") && computer_input === "r"){
+            console.log("Rock Beats Scissors!")
+            return true
+        } else if ((user_input === "scissors" || user_input === "s") && computer_input === "p"){
+            console.log("Scissors Beats Paper!!")
+            return true
+        } else if ((user_input === "scissors" || user_input === "s") && computer_input === "s"){
+            console.log("You both chose scissors! - Try again?")
+            return true
+        }
+        return false 
+    }
     
     // Determine winner 
     // Think about how many variables you need to pass in, and what conditions you need to set up 
+    let game = () => {
+        name = prompt("Please enter your name!")
+        
+        do {
+            console.log("test")
+        } while (win() === false)
 
+
+
+    }
 
     // Log results of the game
     // Call on the methods created earlier and fix the user input 
