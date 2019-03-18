@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>API start</title>
         <link rel="stylesheet" href="/static/style.css" />
+        <link rel="shortcut icon" href="" type="image/mysweetboy.PNG">
     </head>
     <body>
     <div>
@@ -21,7 +22,7 @@
         <!-- login -->
         <form id="form-login" class="">
             <div class="imgcontainer">
-                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                <img src="Week5/Week5Day2/TerminalTrader_api_auth/flask_app/image/mysweetboy.PNG" alt="Avatar" class="avatar">
             </div>
 
             <div class="container">
@@ -35,9 +36,9 @@
             </div>
         </form>
 
-        <!-- deposit lookup -->
+        <!-- deposit money -->
         <div id="div-deposit" class="hide">
-                <h2>Deposit</h2>
+                <h1>Deposit</h1>
             <form>
                 <div>
                     <label for="amount"><b>Amount $</b></label>
@@ -53,16 +54,16 @@
             </form>
             </div>
 
-        <!-- Ticker Lookup -->
-        <div class="hide" id="stock">
+        <!-- Ticker Lookup  -->
+        <div class="" id="ticker">
             <div class="row">
                 <h1> Stock Lookup </h1>
                 <hr />
                 <form id="form-stock">
-                    <div class="row">
-                        <label for="ticker"><b>Ticker Symbol</b></label>
+                    <div>
+                        <label for="stockTicker"><b>Ticker Symbol</b></label>
                         <br>
-                        <input name="ticker" id="ticker" placeholder="ticker" required />
+                        <input name="stockTicker" id="stockTicker" placeholder="Enter A Ticker" required />
                     </div>
                     <div class="row">
                         <button name="getprice" id="getprice" onclick="price_click()">Get Price</button>
@@ -72,6 +73,8 @@
                 <div class="priceDisplay"><span class="priceDisplay"></span></div>
             </div>
         </div>
+
+
 
         <!-- trades lookup -->
         <div class="hide" id="trades">
@@ -94,6 +97,30 @@
             </div>  
         </div>
 
+        <!-- Buy Stock -->
+        <div class="hide" id="stock">
+                <div class="row">
+                    <h1> Purchase Stock </h1>
+                    <hr />
+                    <form id="buy-stock">
+                        <div class="row">
+                                <label for="buy_ticker"><b>Ticker</b></label>
+                                <br>
+                                <input name="buy_ticker" id="buy_ticker" placeholder="Stock to purchase" required />
+                        </div>
+                        <div class="row">
+                                <label for="amount"><b>Amount</b></label>
+                                <br>
+                                <input name="buy_amount" id="buy_amount" placeholder="Amount to purchase" required />
+                        </div>
+                        <div class="row">
+                            <button name="getStockPrice" id="getStockPrice" onclick="buyStockClick()">Buy Stock</button>
+                        </div>
+                    </form>
+                    <hr/>
+                    <div class="stocksDisplay"><span class="stocksDisplay"></span></div>
+                </div>
+            </div>
 
 
 

@@ -1,17 +1,17 @@
  
  
-#stock, #trades, #div-deposit{
+#stock, #trades, #div-deposit, #ticker, #buy-ticker{
     /* display: table;  */
     width: 100%; 
     text-align: center;
     padding-top: 20%
 }
 
-
+/* 
 
 #form-div {
     display: inline-block;
-} 
+}  */
 
 .hide { 
     display: none 

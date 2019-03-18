@@ -11,7 +11,7 @@ const tradesNav = document.getElementById("tradesNav")
 
 // all forms
 const loginform = document.getElementById('form-login')
-const stockform = document.getElementById('stock')
+const tickerForm = document.getElementById('stockTicker')
 const depositform = document.getElementById('div-deposit')
 const tradeform = document.getElementById('trades')
 
@@ -21,7 +21,7 @@ const password_input = document.getElementById('password')
 
 
 // ticker items
-const inputArea = document.getElementById('ticker')
+const inputArea = document.getElementById('stockTicker')
 const pricebutton = document.getElementById('getprice')
 const outputArea = document.querySelector('.priceDisplay')
 
@@ -31,6 +31,11 @@ const tickerbutton = document.getElementById('tradesByTicker')
 const tradebutton = document.getElementById('tradesHistory')
 const outputAreaTrades = document.querySelector('.tradesDisplay')
 
+//stock items
+const stockPriceButton = document.getElementById('getStockPrice')
+const tickerPurchaseInput = document.getElementById('buy_ticker')
+const amountPurchaseInput = document.getElementById("buy_amount")
+const outputAreaStocks = document.querySelector(".stocksDisplay")
 
 // login
 function login_click(e){
@@ -46,7 +51,7 @@ function login_click(e){
   });
   prom.then(response => response.json())
       .then(json => {
-      console.log(json)
+        console.log(json)
       if (json.api_key === undefined){
         password_input.value=""
         return null
@@ -54,9 +59,8 @@ function login_click(e){
       window.apikey = json.api_key
       apikey.value = json.api_key
       loginform.classList.add('hide')
-      stockform.classList.remove('hide')
-      navbar.classList.remove
-      ('hide')
+      tickerForm.classList.remove('hide')
+      navbar.classList.remove('hide')
   })
 
 }
@@ -136,7 +140,7 @@ function deposit_click() {
 };
  
 
-
+// navbar functions
 homeNav.addEventListener('click',(e)=> e.preventDefault())
 tickerNav.addEventListener('click',(e)=> e.preventDefault())
 depositNav.addEventListener('click',(e)=> e.preventDefault())
@@ -146,37 +150,79 @@ tradesNav.addEventListener('click',(e)=> e.preventDefault())
 
 function showHome(){
   loginform.classList.remove('hide')
-  stockform.classList.add('hide')
+  tickerForm.classList.add('hide')
   depositform.classList.add('hide')
   tradeform.classList.add('hide')
 }
 function showTicker(){
   loginform.classList.add('hide')
-  stockform.classList.remove('hide')
+  tickerForm.classList.remove('hide')
   depositform.classList.add('hide')
   tradeform.classList.add('hide')
 }
 function showDeposit(){
   loginform.classList.add('hide')
-  stockform.classList.add('hide')
+  tickerForm.classList.add('hide')
   depositform.classList.remove('hide')
   tradeform.classList.add('hide') 
 }
 function showBuy(){
   loginform.classList.add('hide')
-  stockform.classList.add('hide')
+  tickerForm.classList.add('hide')
   depositform.classList.add('hide')
   tradeform.classList.add('hide') 
 }
 function showSell(){
   loginform.classList.add('hide')
-  stockform.classList.add('hide')
+  tickerForm.classList.add('hide')
   depositform.classList.add('hide')
   tradeform.classList.add('hide') 
 }
 function showTrades(){
   loginform.classList.add('hide')
-  stockform.classList.add('hide')
+  tickerForm.classList.add('hide')
   depositform.classList.add('hide')
   tradeform.classList.remove('hide') 
+}
+
+stockPriceButton.addEventListener('click', (e)=> e.preventDefault())
+function buyStockClick(){
+  let tickerValue = tickerPurchaseInput.value 
+  let purchaseAmount = amountPurchaseInput.value
+
+  if (tickerValue === "" || purchaseAmount === ""){
+    outputAreaStocks.innerHTML += "<h2><b>Please enter a value for both fields</b></h2>" 
+    return null
+  }
+
+  prom = fetch(`http://127.0.0.1:5000/api/price/${tickerValue}`)
+  prom.then(data => data.json())
+      .then(ticker => { 
+      // {price: 283.51, symbol: "TSLA"}
+      if (ticker.error){
+        outputAreaStocks.innerHTML += "<h2><b>Please enter a valid stock</b></h2>" 
+        return null
+      } else {
+        let balance = fetch(`http://127.0.0.1:5000/api/${window.apikey}/balance`, {
+          method: 'GET',
+          headers: {
+                  'Content-Type': 'application/json'
+                },
+        })
+        balance.then(data => data.json())
+            .then(json =>{ 
+              // render html 
+              // console.log(json) {balance: 1197676, username: "bruce"}
+              // console.log(ticker) {price: 283.51, symbol: "TSLA"}
+              if( (parseInt(purchaseAmount) * ticker.price) >  json.balance){
+                outputAreaStocks.innerHTML += "<h2><b>You have insufficient funds</b></h2>" 
+              }  else {
+  let purchaseAmount = amountPurchaseInput.value
+                 prom = fetch(`http://127.0.0.1:5000/api/${window.apikey}/${tickerValue}/<ticker>/${purchaseAmount}`)
+                 prom.then(data => data.json())
+                
+              }
+          })
+      }
+    })
 }

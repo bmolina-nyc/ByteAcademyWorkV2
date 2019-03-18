@@ -29,8 +29,6 @@ def getkey():
     print(rdict)
     return jsonify(rdict)
 
-
-
 #works
 @app.route('/api/price/<ticker>', methods=['GET'])
 def lookup(ticker):
