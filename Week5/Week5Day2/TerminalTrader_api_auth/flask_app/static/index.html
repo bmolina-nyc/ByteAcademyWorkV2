@@ -8,15 +8,17 @@
     <body>
     <div>
         <ul id="navbar" class="hide">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#news">Ticker</a></li>
-            <li><a href="#contact">Buy</a></li>
-            <li><a href="#contact">Sell</a></li>
-            <li><a href="#contact">Trades</a></li>
+            <li id="homeNav"><a href="" onclick=showHome()>Home</a></li>
+            <li id=tickerNav><a href="" onclick=showTicker()>Ticker</a></li>
+            <li id="depositNav"><a href="" onclick=showDeposit()> Deposit</a></li>
+            <li id="buyNav"><a href="" onclick="showBuy()">Buy</a></li>
+            <li id="sellNav"><a href="" onclick=showSell()>Sell</a></li>
+            <li id="tradesNav"><a href="" onclick=showTrades()>Trades</a></li>
         </ul>
 
         <h2>Terminal Teller</h2>
 
+        <!-- login -->
         <form id="form-login" class="">
             <div class="imgcontainer">
                 <img src="img_avatar2.png" alt="Avatar" class="avatar">
@@ -33,14 +35,33 @@
             </div>
         </form>
 
+        <!-- deposit lookup -->
+        <div id="div-deposit" class="hide">
+                <h2>Deposit</h2>
+            <form>
+                <div>
+                    <label for="amount"><b>Amount $</b></label>
+                    <br>
+                    <input name="amount" id="amount" placeholder="Amount" />
+                </div>
+                <div>
+                    <button id="deposit" type="button" onclick="deposit_click()">Deposit</button>
+                </div>
+                <div>
+                    <span id="output"></span>
+                </div>
+            </form>
+            </div>
+
         <!-- Ticker Lookup -->
-        <div class="" id="stock">
+        <div class="hide" id="stock">
             <div class="row">
                 <h1> Stock Lookup </h1>
                 <hr />
                 <form id="form-stock">
                     <div class="row">
-                        <label for="ticker">Ticker Symbol</label>
+                        <label for="ticker"><b>Ticker Symbol</b></label>
+                        <br>
                         <input name="ticker" id="ticker" placeholder="ticker" required />
                     </div>
                     <div class="row">
@@ -52,13 +73,15 @@
             </div>
         </div>
 
-        <div class="" id="trades">
+        <!-- trades lookup -->
+        <div class="hide" id="trades">
             <div class="row">
                 <h1> Trades Lookup</h1>
                 <hr />
                 <form id="form-trades">
                     <div class="row">
-                        <label for="tradesticker">Get Trades by Ticker</label>
+                        <label for="tradesticker"><b>Get Trades by Ticker</b></label>
+                        <br>
                         <input name="tradesTicker" id="tradesTicker" placeholder="enter a ticker" required />
                         <button name="tradesByTicker" id="tradesByTicker" onclick="ticker_click()">Get Ticker History</button>
                     </div>

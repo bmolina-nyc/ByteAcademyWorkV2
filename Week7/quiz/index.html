@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Fizzbuzz</title>
+        <style>
+        
+        body, ul{font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }   
+        
+        label{
+            font-size: 3em; 
+            text-align: center;
+        }
+        button {
+            background-color:black;
+            color: white;
+            font-size: 3em;
+            padding: 14px 20px;
+            margin: auto;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+        }   
+
+        ul {
+            list-style-type: none;
+            text-align: center;
+            margin: 8px 0;
+            margin-left: 25%;
+            font-size: 2em;
+            padding: 10px;
+            overflow: hidden;
+            background-color: lightseagreen;
+            width: 48.9%
+        }
+        
+        </style>
+    </head>
+
+
+    <body>
+        <div>
+            <label for="button"><b>Buzz!</b></label>
+            <br/>
+            <button type="button" id="fizzbuzz" onclick="fizzbuzz()">Fizzbuzz</button>
+        </div>
+        <div class="fizzBuzzContent"><span class="fizzBuzzContent"></span></div>
+
+    </body>
+
+
+
+
+    <script>
+        fizzButton = document.getElementById('fizzbuzz')
+        fizzBuzzOutput = document.querySelector('.fizzBuzzContent')
+        fizzButton.addEventListener('click', (e)=> e.preventDefault)
+    
+        function fizzbuzz(){
+            for (var i=1; i <= 100; i++)
+                {
+                    if (i % 15 == 0)
+                        fizzBuzzOutput.innerHTML += '<ul>FizzBuzz</ul>';
+                    else if (i % 3 == 0)
+                        fizzBuzzOutput.innerHTML += '<ul>Fizz</ul>';
+                    else if (i % 5 == 0)
+                        fizzBuzzOutput.innerHTML += '<ul>Buzz</ul>';
+                    else
+                        fizzBuzzOutput.innerHTML += `<ul>${i}</ul>`;
+                }
+        }
+    </script>
+</html>
+
+
