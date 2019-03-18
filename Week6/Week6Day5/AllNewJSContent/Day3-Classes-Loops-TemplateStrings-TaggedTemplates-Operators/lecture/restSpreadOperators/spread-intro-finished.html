@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The ...Spread Operator</title>
+</head>
+<body>
+<script>
+  // A spread operator takes every single item from an iterable and adds it to a given list, object, etc. 
+  // An iterable is anything you can loop through with a for-of loop and that includes arrays, strings, DOM nodes, argument objects, maps, and sets 
+  const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
+  const specialty = ['Meatzza', 'Spicy Mama', 'Margherita'];
+
+  // This also acceptable if you are simply adding together two different iterables 
+  //   const pizzas = featured.concat(specialty);
+
+  const pizzas = [...featured, 'veg', ...specialty];
+  console.log(pizzas)
+
+  // this is how you easily copy an array - we use the spread operator to copy each element 
+  const fridayPizzas = [...pizzas];
+  console.log(fridayPizzas);
+
+  // sample string spread 
+  const string = [...'Gabby']
+  console.log(string);
+
+</script>
+</body>
+</html>

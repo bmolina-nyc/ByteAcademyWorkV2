@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>getElementById</title>
+    <style type="text/css">
+    /* It is perfectly valid to have your css embedded within your HTML file */
+        body {
+            margin: 30px;
+        }
+        .phrase {
+            padding: 10px;
+        }
+        .button {
+            margin: 20px;
+        }
+        .input {
+            margin: 10px; 
+        }
+    </style> 
+</head>
+<body>
+    <!-- getElementById is used when ID instead of class is the better identifier for a given tag -->
+    <!-- In this example, we are have multiple inputs within a given form - in this scenario, it is better to used
+    getElementById instead of querySelector -->
+    <form>
+        Enter Your CatchPhrase : <input type="text" class="input" id="catchPhrase" /><br>
+        Enter Your Second CatchPhrase : <input type="text" class="input" id="catchPhrase2" /><br>
+        <input type="button" class ="button" onClick="displayPhrase()" Value="CatchPhrase" />
+        <input type="button" class ="button" onClick="combinePhrases()" Value="CombinedPhrases" />
+    </form>
+    <div class ="phrase">
+        In a loud roar, you shout!: <br>
+        <!-- Over here let us set up where we will render a given phrase-->
+        <strong><span id ="phrase"></span></strong>
+    </div>
+<script>
+    // Now lets create a function which allows us to select a tag within an html file
+    // and display the catchPhrase we initially typed 
+    function displayPhrase() {
+        let phrase = document.getElementById("catchPhrase").value;
+        document.getElementById("phrase").innerHTML = phrase;
+    }
+
+    // Lets now create a function which allows us to display the combined phrases 
+    function combinePhrases() {
+        let phrase1 = document.getElementById("catchPhrase").value;
+        let phrase2 = document.getElementById("catchPhrase2").value;
+        const combinedPhrases = phrase1 + " " + phrase2
+        document.getElementById("phrase").innerHTML = combinedPhrases;
+    }
+    
+</script>
+</body>
+</html>

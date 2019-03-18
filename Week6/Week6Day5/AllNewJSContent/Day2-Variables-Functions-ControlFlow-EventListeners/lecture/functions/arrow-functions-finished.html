@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow Functions</title>
+</head>
+<body>
+    <div>
+        PLEASE VIEW THE PAGE SOURCE BY CLICKED F12 or RIGHT CLICKING ON THE PAGE AND SELECTING INSPECT 
+    </div>
+<script>
+    // Lets start by first seeing what a default function looks like
+    // here we set default values for tax and tip which can then be overridden 
+    function calculateBill(total, tax = 0.13, tip=0.15) {
+        return total + (total*tax) + (total*tip);
+    }
+
+    const totalBill = calculateBill(100, undefined, 0.25);
+    console.log('The total bill is: ', totalBill)
+
+
+    // Now lets look at arrow functions with some built-in JS methods 
+    const ages = [23,62,45,234,2,62,234,62,34];
+
+    // Now console.log the ages which are greater than 62 - we will use the method .filter() which creates a new array from an existing one 
+    // this basically means that if age is greater than 60, then add it to the old array 
+    const old = ages.filter(age => age >= 60);
+    console.log('The ages above 60 are: ',old);
+
+
+    // Now lets touch on the topic of template strings - we will dive deeper into this topic over the next few days 
+    const names = ['Jim', 'Pam', 'Dwight', 'Michael'];
+
+    //`${name}` - back ticks are used for template strings
+
+    // Now we are going to find different ways to console.log a full names list using the built-in JS method .map()
+    const fullNames = names.map( function(name) {
+        return `${name} OFFICE LIFER`
+    })
+    console.log('Full Names', fullNames);
+
+
+    // you can drop the word "function" and add a fat arrow in replacement
+    const fullNames2 = names.map((name) => {
+        return `${name} OFFICE LIFER`;
+    });
+    console.log('Full Names 2', fullNames2)
+
+
+    // If you only have one parameter, a parenthesis is not needed
+    const fullNames3 = names.map(name => {
+        return `${name} OFFICE LIFER`;
+    });
+    console.log('Full Names 3', fullNames3)
+
+
+    // This is an implicit return - you need to delete the curly brackets 
+    const fullNames4 = names.map(name => `${name} OFFICE LIFER`);
+    console.log('Full Names 4', fullNames4)
+
+    // This is an example if you have no arguments at all - an Annonymous Function 
+    const fullNames5 = names.map(() => `OFFICE LIFER`);
+    console.log(fullNames5)
+
+    // this is how you name functions, the last 4 functions do not have names and thus cannot be called upon
+    const sayMyName = (name) => {
+        alert(`Hello ${name}!`)
+    }
+
+    sayMyName('GABBBBBBBBY')
+
+    // Now let's implicitly return 3 values from 2 variables 
+    const race = '100m Dash';
+    const winners = ['Hunter Gath', 'Singa Song', 'Imda Bos'];
+
+    // Parenthesis signal an implicit return so that something will be returned whenever the const win is called 
+    // you don't have to use the syntax "race:race". If you input race and it wil be given a key name matching the value '100m Dash'
+    // map treats 'i' as the index position of a given array 
+    const win = winners.map((winner, i) => ({name: winner, race, place: i + 1}));
+
+    console.table(win)
+
+
+
+</script>   
+</body>
+</html>

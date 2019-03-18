@@ -22,14 +22,17 @@
     
     let user_input = () =>{
         response = prompt("Please choose Rock(r), Paper(p), or Scissors(s)")
+        return response 
     }
 
-    let input_check = (response) => {
-        response = response.toLowerCase()
-        if (response !== "rock" || response !== "r"|| response !== "scissors" || response !== "s" || response !== "paper" || response !== "p") {
-            return false 
-        } 
-        return true 
+    let input_check = (user_input) => {
+        user_input = user_input.toLowerCase()
+
+        if ((user_input === "rock") || (user_input === "r") || (user_input === "scissors") || (user_input === "s") || (user_input === "paper") || (user_input === "p")) {
+            return true  
+        } else {
+            return false
+        }
     }
 
     // Get random computer input
@@ -77,21 +80,28 @@
         }
         return false 
     }
+
+    let winner = () => {
+        if (turn % 2 === 0){
+            return `${name} wins!`
+        } else {
+            return "Computer wins!"
+        }
+    }
     
     // Determine winner 
     // Think about how many variables you need to pass in, and what conditions you need to set up 
     let game = () => {
-        name = prompt("Please enter your name!")
-        
-        do {
-            console.log("test")
-        } while (win() === false)
-
-
-
+            let ai_input = computer_input()
+            let player_input = user_input()
+            if (input_check(player_input)){
+                win(player_input, ai_input)
+            } else {
+                console.log("Please enter a valid input")
+            }
     }
 
-    // Log results of the game
+    // Log results of the gsame
     // Call on the methods created earlier and fix the user input 
     // console log the results of the match 
   

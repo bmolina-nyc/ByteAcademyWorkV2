@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started</title>
+  </head>
+  <body>    
+    <style>
+    /* here we now create classes for the different div containers */
+        /* wrap will contain the box and the box will have animations for .opening and .open */
+        /* display: flex makes the wrap class and its components flex boxes */
+        .wrap {
+            min-height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            font-weight: 100;
+            color:white;
+        }
+
+        /* Here we set a default picture as an image - feel free to add whatever link */
+        /* Transition relates to when each of the sides are animated */
+        .box {
+            background:black url(https://unsplash.it/1500/1500?image=560&blur=0.5) center fixed no-repeat;
+            width:50px;
+            height:50px;
+            padding:50px;
+            transition: width 0.2s, height 0.6s;
+            position: relative;
+        }
+
+        /* This the additional class for the box when it has been clicked opened */
+        .box.opening {
+            width:500px;
+            height:500px;
+        }
+
+        /* This is the css class for the username */
+        /* Transform:translateX states from what location the text is currently coming from */
+        .box h2 {
+            position: absolute;
+            width:100%;
+            font-size: 100px;
+            transform:translateX(-200%);
+            transition: all 0.5s;
+            top:0;
+        }
+
+        /* This is the css class for the paragraph tag*/
+        .box p {
+            position: absolute;
+            width:100%;
+            transform:translateX(200%);
+            transition: all 0.5s;
+            bottom:0;
+        }
+
+        .box.open > * {
+            transform:translateX(0%);
+        }    
+    </style>  
+    <div class="wrap">
+        <div class="box">
+            <h2>Tan Man</h2>
+            <p class="social">IG: @gabriel_v_tan</p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

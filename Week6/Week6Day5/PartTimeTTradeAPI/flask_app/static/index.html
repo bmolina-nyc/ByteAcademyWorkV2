@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="/static/site.webmanifest">
+  <link rel="apple-touch-icon" href="/static/icon.png">
+  <link rel="shortcut icon" href="/static/favicon.ico" />
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <meta name="theme-color" content="#fafafa">
+<style>
+    .hide { display: none }
+</style>
+</head>
+<body>
+    <div id="divlogin">
+        <h2>Login</h2>
+        <form>
+            <div>
+                <label for="username">Username</label>
+                <input id="username" name="username" />
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" /> 
+            </div>
+            <div>
+                <button id="login" type="button" onclick="login_click()">Password</button>
+            </div>
+        </form>
+    </div>
+    <div id="divdeposit" class="hide">
+        <h2>Deposit</h2>
+    <form>
+        <div>
+            API Key Loaded: <span id="apikey" placeholder="API Key" />
+        </div>
+        <div>
+            <label for="amount">$ Amount</label>
+            <input name="amount" id="amount" placeholder="Amount" />
+        </div>
+        <div>
+            <button id="deposit" type="button" onclick="deposit_click()">Deposit</button>
+        </div>
+        <div>
+            <span id="output"></span>
+        </div>
+    </form>
+    </div>
+</body>
+  <script src="/static/script.js"></script>
+</html>

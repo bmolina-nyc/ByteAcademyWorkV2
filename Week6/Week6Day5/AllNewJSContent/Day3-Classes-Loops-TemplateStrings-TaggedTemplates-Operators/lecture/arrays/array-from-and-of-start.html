@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array .from() and .of()</title>
+</head>
+<body>
+  <div class="people">
+    <p>Kenso</p>
+    <p>Carter</p>
+    <p>Greg</p>
+    <p>Gabby</p>
+  </div>
+<script>
+  // .from() and .of() are methods on the Array itself and not the prototype, so we have to treat them differently than .map() or .filter()  
+  // .from() will convert an array-ish(nodelist in this example) object into an actual array 
+  // '.people p' selects all the 'p's within the div class "people"
+
+
+  // we intentionally draw an error here and show that .map() does not work on the nodelist of people 
+
+  
+  // in order to make array methods work, we need to convert the nodelist into an array 
+  // we take the persons within the people nodelist and return the person.textContent using the Array.from() method 
+
+  
+  // now lets try to handle an array with an indeterminant amount of elements 
+
+    // we need to first convert arguments into an actual array before we can perform the reduce method  
+
+
+    // reduce() executes a reducer function (that you provide) on each member of the array resulting in a single output value
+    // in our case, our function add the previous value with the next value 
+
+
+  
+  // .of() creates an array of however many arguments you pass to it. 
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ROCK PAPER SCISSORS BOMB</title>
+</head>
+<body>
+    <div>
+        PLEASE VIEW THE PAGE SOURCE BY CLICKED F12 or RIGHT CLICKING ON THE PAGE AND SELECTING INSPECT 
+    </div>
+<script>
+    // Our code will break the game into four parts:
+    // 1) Get the user's choice.
+    // 2) Get the opponent's choice.
+    // 3) Compare the two choices and determine a winner.
+    // 4) Start the program and display the results.
+
+    // Get User Input
+    // Create a method for getting user input. You can use if statements or switch statements or use the ternary operator
+    const getUserChoice = (userInput) => {
+        userInput = userInput.toLowerCase(); 
+        if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors' || userInput === 'bomb'){
+            return userInput
+        } else {
+            console.log("Invalid Input");
+        }
+    };
+  
+    // Get random computer input
+    // Think about the built in Math JS methods 
+    const getComputerChoice = () => {
+        let randomNumber = Math.floor(Math.random()*3);
+        let choice = randomNumber
+        switch (choice){
+        case 0:
+            return 'rock';
+            break;
+        case 1:
+            return 'paper';
+            break;
+        default:
+            return 'scissors';
+            break;
+        }
+    };
+    
+    // Determine winner 
+    // Think about how many variables you need to pass in, and what conditions you need to set up 
+    // this is a long hand way of doing it with if-statements 
+    const determineWinner = (userChoice, computerChoice) =>{
+        if (userChoice === computerChoice) {
+            return 'tie';
+        } if (userChoice === 'bomb') {
+            return 'User wins';
+        } if (userChoice === 'rock') {
+            if (computerChoice === 'paper'){
+                return 'Computer wins';
+            } else {
+                return 'User wins';
+            }
+        } if (userChoice === 'paper' ) {
+            if (computerChoice === 'scissors'){
+                return 'Computer wins';
+            } else {
+                return 'User wins';
+            }
+        } if (userChoice === 'scissors') {
+            if (computerChoice === 'rock'){
+                return 'Computer wins';
+            } else {
+                return 'User wins';
+            }
+        }
+    };
+    
+    // Log results of the game
+    // Call on the methods created earlier and fix the user input 
+    // console log the results of the match 
+    const playGame = () =>{
+        userChoice = getUserChoice('rock');
+        computerChoice = getComputerChoice();
+        console.log(userChoice);
+        console.log(computerChoice);
+        console.log(determineWinner(userChoice, computerChoice));
+    };
+    
+    playGame();
+  
+    
+</script>   
+</body>
+</html>

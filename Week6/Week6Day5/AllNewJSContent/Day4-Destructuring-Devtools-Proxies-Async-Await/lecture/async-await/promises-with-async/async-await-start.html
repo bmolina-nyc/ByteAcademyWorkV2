@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Async Await</title>
+</head>
+
+<body>
+  <script>
+    function breathe(amount) {
+      return new Promise((resolve, reject) => {
+        if (amount < 500) {
+          reject('That is too small of a value');
+        }
+        setTimeout(() => resolve(`Done for ${amount} ms`), amount);
+      });
+    }
+
+    // Here we will create a higher-order error function 
+    // fn is any function - here we will return a function which spreads the arguments into another function to catch the errors 
+    // this is great for handling errors in a general way
+    // however, the try and catch method is more practical for specific errors 
+
+
+        // at this point fn is our go() function 
+        // ...args is inserted as the variable so that we can pass first and last name in later   
+
+
+    // Here we will create an aysnchronous function where we will await a specific function 
+    // async await is built upon promises - it is not a replacement 
+    // await functions need to be created within the async functions
+    // you may also create it as an arrow function - const go = async () => {}
+    // you may use the try {} and catch{error} for resolving and rejecting or you may do a higher order function 
+
+
+    
+    // Here we have to create a function where we pass go() into catchErrors() since catchErrors is a HOF
+
+
+    
+    // Here we then run wrappedFunction with the first and last name we want to console.log() 
+
+
+  </script>
+</body>
+
+</html>

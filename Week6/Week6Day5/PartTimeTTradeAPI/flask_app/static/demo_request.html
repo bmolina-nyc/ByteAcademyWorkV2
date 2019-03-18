@@ -1,0 +1,22 @@
+<!doctype html>
+/*
+
+this code is equivalent to:
+
+curl -H "Content-Type: application/json" -X POST -d '{"username": "user", "password": "user"}' http://127.0.0.1:5000/api/getkey
+
+*/
+<script>
+    let prom = fetch('/api/getkey', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({'username': 'user', 'password': 'user'})
+    })
+
+    prom.then(data=>data.json()).then(json=>{
+        console.log(json)
+
+    })
+</script>

@@ -2,6 +2,13 @@ from flask import jsonify, abort, request
 from flask_app import app
 from app import Account
 from app.util import get_price
+from requests.exceptions import ConnectionError
+
+UNAUTHORIZED = {"error": "unauthorized", "status_code": 401}
+NOT_FOUND = {"error": "not found", "status_code": 404}
+APP_ERROR = {"error": "application error", "status_code": 500}
+BAD_REQUEST = {"error": "bad request", "status_code": 400}
+
 
 @app.errorhandler(404)
 def error404():
@@ -10,6 +17,19 @@ def error404():
 @app.errorhandler(500) 
 def error500():
     return jsonify({"error": "application error"}), 500
+
+@app.route('/api/getkey', methods=['POST'])
+def getkey():
+    if not request.json or 'username' not in request.json or 'password' not in request.json:
+        return jsonify(BAD_REQUEST), 401
+    account = Account.login(request.json['username'], request.json['password'])
+    if not account:
+        return jsonify(UNAUTHORIZED), 401
+    rdict = {'api_key': account.api_key}
+    print(rdict)
+    return jsonify(rdict)
+
+
 
 #works
 @app.route('/api/price/<ticker>', methods=['GET'])

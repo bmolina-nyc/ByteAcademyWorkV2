@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='css/structure.css') }}" >
+    <title>Highcharts Example</title>
+</head>
+<body>
+        <header class="header">
+            <h1>Welcome to Visualizations with Highcharts</h1>
+            <p> Please select one of the graphs to view </p>
+        </header>
+        <nav class="topnav">
+            <a href="graph1">Graph1</a>
+            <a href="graph2">Graph2</a>
+            <a href="graph34">Graph3</a>
+        </nav>  
+    <main>
+        <!-- Page content -->
+        {% block viewport %}
+
+        {% endblock viewport %}
+    </main>
+</body>
+</html>

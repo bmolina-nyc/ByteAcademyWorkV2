@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Async Await</title>
+</head>
+
+<body>
+  <script>
+
+      const p1 = fetch('https://api.github.com/users/gabrielvtan');
+      const p2 = fetch('https://api.github.com/users/redcartel');
+      // Wait for both of them to come back
+      // here we can put an await around both of the api endpoints
+      // Promise.all takes an array of promises - this creates a mega promise which doesn't resolve until both promises have been resolved 
+
+      // again we have to parse each of the responses as json 
+
+      // here we destructure the array then await again the parsing of the json data 
+
+
+
+    // This operates the same way as the function above, except that take in the array of names
+    // instead of defining each enpoint, we are going to use a base URL which we will loop over for each username 
+
+
+      // we can create as the response if don't know the number of usernames we want to pass 
+
+
+  </script>
+</body>
+
+</html>

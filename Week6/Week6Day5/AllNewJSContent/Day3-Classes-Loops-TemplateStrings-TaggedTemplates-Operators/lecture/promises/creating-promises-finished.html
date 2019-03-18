@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creating Promises!</title>
+</head>
+<body>
+<script>
+  // Promise constructor takes a function as an argument of the variable resolve and reject 
+  // Your promise will either resolve (succed) or reject(error) 
+  const p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+       const postPromise = fetch('https://wesbos.com/wp-json/wp/v2/posts')
+      if (postPromise) {
+          resolve(postPromise);
+      } else {
+      // make sure to pass the Error object so that you can actually find the correct line of the error message 
+      reject(Error('Err something went wrong...'));
+      }
+    }, 1000);
+  });
+
+  // because we do not parse out the data as json - it gets passed as a response instead
+  p
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+
+
+  console.log(p);
+
+</script>
+</body>
+</html>

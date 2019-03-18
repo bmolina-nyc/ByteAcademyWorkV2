@@ -3,29 +3,84 @@
     <head>
         <meta charset="utf-8">
         <title>API start</title>
-        <!-- <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css" /> -->
-        <!-- <link rel="stylesheet" href="/static/style.css" /> -->
+        <link rel="stylesheet" href="/static/style.css" />
     </head>
     <body>
-        <div class="container">
+    <div>
+        <ul id="navbar" class="hide">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">Ticker</a></li>
+            <li><a href="#contact">Buy</a></li>
+            <li><a href="#contact">Sell</a></li>
+            <li><a href="#contact">Trades</a></li>
+        </ul>
+
+        <h2>Terminal Teller</h2>
+
+        <form id="form-login" class="">
+            <div class="imgcontainer">
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <label for="username"><b>Username</b></label>
+                <input type="text" id="username" placeholder="Enter Username" name="username" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" id="password" placeholder="Enter Password" name="password" required>
+                    
+                <button type="button" id="login" onclick="login_click()">Login</button>
+            </div>
+        </form>
+
+        <!-- Ticker Lookup -->
+        <div class="" id="stock">
             <div class="row">
                 <h1> Stock Lookup </h1>
                 <hr />
-                <form id="form">
+                <form id="form-stock">
                     <div class="row">
                         <label for="ticker">Ticker Symbol</label>
                         <input name="ticker" id="ticker" placeholder="ticker" required />
                     </div>
                     <div class="row">
-                        <button name="getprice" id="getprice">Get Price</button>
+                        <button name="getprice" id="getprice" onclick="price_click()">Get Price</button>
                     </div>
                 </form>
-                <hr>
-                <div class="priceDisplay"><span class="display"></span></div>
-                </form>
+                <hr/>
+                <div class="priceDisplay"><span class="priceDisplay"></span></div>
             </div>
         </div>
+
+        <div class="" id="trades">
+            <div class="row">
+                <h1> Trades Lookup</h1>
+                <hr />
+                <form id="form-trades">
+                    <div class="row">
+                        <label for="tradesticker">Get Trades by Ticker</label>
+                        <input name="tradesTicker" id="tradesTicker" placeholder="enter a ticker" required />
+                        <button name="tradesByTicker" id="tradesByTicker" onclick="ticker_click()">Get Ticker History</button>
+                    </div>
+                    <div class="row">
+                        <button name="tradesHistory" id="tradesHistory" onclick="trades_click()">See All Ticker Trade History</button>
+                    </div>
+                </form>
+                <hr/>
+                <div class="tradesDisplay"><span class="tradesDisplay"></span></div>
+            </div>  
         </div>
+
+
+
+
+        </div>
+
+
+
+
+        
+        
     </body>
     <script src="/static/script.js"></script>
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const variable</title>
+</head>
+<body>
+    <div>
+        PLEASE VIEW THE PAGE SOURCE BY CLICKED F12 or RIGHT CLICKING ON THE PAGE AND SELECTING INSPECT 
+    </div>
+<script>
+// Let's start by learning the difference between "let" and "const" 
+// "let" is a mutable variable, while "const" is a immutable variable 
+let number = 10;
+console.log(number)
+
+number = 20;
+console.log(number)
+
+const name = 'Gabby';
+console.log(name)
+
+// here if we attempt to change the variable, we will see that we run into an error 
+// name = 'Larry'
+// console.log(name)
+
+const person = {
+    name: 'Eric Cartman',
+    age: 13,
+    food: 'Cheesy Poofs'
+}
+
+console.log(person)
+console.log(person.age)
+
+// Whenver objects are saved as const variables - this actually does not create an immutable variable 
+person.age = 20;
+console.log('age after changing the object',person)
+
+// So in order to freeze an object, we need to do the following
+const frozen_person = Object.freeze(person);
+
+console.log('frozen person', frozen_person)
+
+frozen_person.age = 33;
+
+console.log('As we can see, the details of the frozen person does not changes',frozen_person)
+
+// This is what we call the temporal dead zone - always define your variables before calling them within a given method 
+console.log(pizza)
+const pizza = 'Deep Dish 🍕🍕🍕';
+
+</script>   
+</body>
+</html>
