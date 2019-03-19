@@ -4,6 +4,8 @@
 - React was created by developers at Facebook who were looking for an easier way to create more 'reactive' websites
 - To start things off, lets us npm to create our first react application. Type the following commands below in your terminal 
 
+
+
 ```script
 npx create-react-app my-first-app
 cd my-first-app
@@ -194,7 +196,7 @@ const person = (props) => {
 ```jsx
         <Person
             name={this.state.persons[1].name}
-            age={this.state.persons[1].age}>Children Props! </Person> 
+            age={this.state.persons[1].age} >  Children Props! </Person> 
 ```
 
 ### Event Handlers 
