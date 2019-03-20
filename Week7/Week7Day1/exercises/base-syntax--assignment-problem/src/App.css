@@ -1,3 +1,15 @@
 .App {
+  text-align: center;
   margin: 16px;
+}
+
+
+
+hr {
+  border: 1.5px solid;
+  box-shadow: none;
+}
+
+p {
+  box-shadow: 0 2px 3px #ccc;
 }
