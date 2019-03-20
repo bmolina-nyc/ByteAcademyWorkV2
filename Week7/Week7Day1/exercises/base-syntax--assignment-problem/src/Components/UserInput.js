@@ -5,7 +5,6 @@ const UserInput = (props) => {
             width: '30%'
     }
     
-
         return(
             <div>
                 <h3>My UserInput Component</h3>
