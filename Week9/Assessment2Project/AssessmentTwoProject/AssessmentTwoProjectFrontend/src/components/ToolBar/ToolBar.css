@@ -1,0 +1,32 @@
+
+.Toolbar {
+    height: 65px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left:0;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+    box-sizing: border-box;
+    z-index: 70;
+    /* box-shadow: 2px 2px; */
+}
+
+/* This sets the CSS for the nav items to displayed whenever selected in the toolbar */
+.Toolbar nav {
+    height: 100%;
+}
+
+.Logo {
+    height: 0px;
+}
+
+/* Sets it up so that only one nav bar is displayed on mobile devices */
+@media (max-width: 499px) {
+    .DesktopOnly {
+        display: none;
+    }
+}

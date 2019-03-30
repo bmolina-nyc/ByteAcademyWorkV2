@@ -11,7 +11,7 @@ def seed(dbpath=DBPATH):
     ORM.dbpath = dbpath
     
     mike_bloom = Account(username='mike_bloom', balance=10000.00)
-    mike_bloom.set_password('password')
+    mike_bloom.sschet_password('password')
     mike_bloom.save()
 
     buy_trade = Trade(accounts_pk = mike_bloom.pk, ticker='tsla', volume=10, price=100.0)

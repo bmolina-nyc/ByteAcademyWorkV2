@@ -1,0 +1,54 @@
+
+/* We will set the css to fit mobile phones, then adjust the display to function with desktop devices */
+.NavigationItem {
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    color: white;
+}
+
+/* a - anchor to style the links */
+.NavigationItem a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+}
+
+/* This is how you style multiple classes */
+.NavigationItem a:hover,
+.NavigationItem a:active {
+    color: #5AED71;
+}
+
+
+/* Here we add the css for desktop devices */
+@media (min-width: 500px) {
+    .NavigationItem {
+        margin: 0;
+        display: flex;
+        height: 100%;
+        width: auto;
+        align-items: center;
+        color: #A2E0A8;
+    }
+
+    /* a - anchor to style the links */
+    .NavigationItem a {
+        color: #A2E0A8;
+        height: 100%;
+        padding: 16px 10px;
+        border-bottom: 4px solid transparent;
+
+    }
+
+    /* This is how you style multiple classes */
+    .NavigationItem a:hover,
+    .NavigationItem a:active{
+        background-color: grey;
+        border-bottom: 4px solid #5AED71;
+        color: white;
+    }
+}

@@ -25,7 +25,7 @@ def getkey():
     account = Account.login(request.json['username'], request.json['password'])
     if not account:
         return jsonify(UNAUTHORIZED), 401
-    rdict = {'api_key': account.api_key}
+    rdict = {'api_key': account.api_key, 'username':account.username}
     print(rdict)
     return jsonify(rdict)
 

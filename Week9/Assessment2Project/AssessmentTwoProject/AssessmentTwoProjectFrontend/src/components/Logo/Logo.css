@@ -1,0 +1,15 @@
+
+/* Here we style the logo */
+.Logo {
+    background-color: #060C07;
+    padding: 8px;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+/* Here we style the image within the logo */
+.Logo img {
+    height: 60px;
+    margin-top: 0px;
+}

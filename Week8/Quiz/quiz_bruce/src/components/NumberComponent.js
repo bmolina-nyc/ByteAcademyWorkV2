@@ -14,10 +14,10 @@ class NumberButton extends Component{
     }
 
     render(){
-        const numberComponents = this.state.numbers.map((num, idx)=>{
-            return <NumberComponent key={idx} num={num} />
-        })
-
+        const numberComponents = this.state.numbers.map( (num, idx) =>
+            <NumberComponent key={idx} num={num}  />
+        )
+    
         return(
             <div>
             <h1>Show Numbers</h1>
