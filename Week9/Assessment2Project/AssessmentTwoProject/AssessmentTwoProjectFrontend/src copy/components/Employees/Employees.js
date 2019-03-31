@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import Employee from './Employee';
 import {Redirect, Link} from 'react-router-dom';
-import NotLoggedIn from '../../containers/Home/NotLoggedIn';
+
 
 class Employees extends Component {
     state = {
@@ -38,10 +38,6 @@ class Employees extends Component {
     
 
     render() {
-        if (!window.api_key){
-            return <Redirect to="/error" />
-          }
-
         if (this.state.submitted){
           return <Redirect to='/' />
         }

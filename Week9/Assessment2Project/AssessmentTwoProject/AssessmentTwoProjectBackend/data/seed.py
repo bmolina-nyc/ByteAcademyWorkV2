@@ -1,6 +1,6 @@
 import os 
 from app.orm import ORM
-from app import Branch, Employee
+from app import Branch, Employee, Admin 
 
 DIR = os.path.dirname(__file__)
 DBFILENAME = 'bank.db'
@@ -30,3 +30,8 @@ def seed(dbpath=DBPATH):
     cait.save()
     kes.save()
     zoe.save()
+
+    bruce = Admin(username='bruce')
+    bruce.set_password('password')
+    bruce.api_key = '12345'
+    bruce.save()

@@ -36,6 +36,19 @@ def schema(dbpath=DBPATH):
 
         cur.execute(SQL)
 
+        DROPSQL = "DROP TABLE IF EXISTS {tablename}"
+
+        cur.execute(DROPSQL.format(tablename="admin"))
+
+        SQL = """CREATE TABLE admin(
+            pk INTEGER PRIMARY KEY AUTOINCREMENT,
+            username VARCHAR (128),
+            password_hash VARCHAR (128),
+            api_key INT NOT NULL
+        );"""
+
+        cur.execute(SQL)
+
 if __name__=="__main__":
     schema(DBPATH)
 

@@ -3,22 +3,12 @@ from flask_app import app
 from requests.exceptions import ConnectionError
 from app.branch import Branch
 from app.employee import Employee
-from app.admin import Admin 
 from app.orm import ORM
 
-# UNAUTHORIZED = {"error": "unauthorized", "status_code": 401}
-# NOT_FOUND = {"error": "not found", "status_code": 404}
-# APP_ERROR = {"error": "application error", "status_code": 500}
-# BAD_REQUEST = {"error": "bad request", "status_code": 400}
-
-@app.route('/login', methods=['POST'])
-def login():
-        account = Admin.login(request.json['username'], request.json['password'])
-        if not account:
-            return jsonify({"error": "unauthorized", "status_code": 401})
-        rdict = {'api_key': account.api_key, 'username':account.username}
-        # print(rdict)
-        return jsonify(rdict)
+UNAUTHORIZED = {"error": "unauthorized", "status_code": 401}
+NOT_FOUND = {"error": "not found", "status_code": 404}
+APP_ERROR = {"error": "application error", "status_code": 500}
+BAD_REQUEST = {"error": "bad request", "status_code": 400}
 
 @app.route('/home', methods=['GET'])
 def home():

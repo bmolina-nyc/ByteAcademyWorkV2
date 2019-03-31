@@ -37,9 +37,6 @@ class Branches extends Component {
 
 
     render() {
-        if (!window.api_key){
-            return <Redirect to="/error" />
-          }
 
         if (this.state.submitted){
             return <Redirect to='/' />

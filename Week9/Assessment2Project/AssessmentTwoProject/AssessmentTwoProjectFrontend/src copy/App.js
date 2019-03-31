@@ -5,7 +5,6 @@ import Branches from './components/Branches/Branches';
 import Employees from './components/Employees/Employees';
 import SingleEmployee from './components/Employees/SingleEmployee';
 import SingleBranch from './components/Branches/SingleBranch';
-import NotLoggedIn from './containers/Home/NotLoggedIn';
 import Toolbar from './components/ToolBar/ToolBar';
 // import './App.css';
 
@@ -20,8 +19,7 @@ class App extends Component {
            <Route exact path = "/branches" component={Branches}/>
            <Route path = "/employee/:id" component={SingleEmployee} />
            <Route path = "/branch/:id" component={SingleBranch} />
-           <Route component={NotLoggedIn} />
-           </Switch>
+        </Switch>
       </div>
     );
   }
