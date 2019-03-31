@@ -120,6 +120,17 @@ def deleteemployee(id):
 @app.route('/branch/<id>',)
 def branch(id):
     branch = Branch.one_from_pk(id)
+    employees = Employee.select_many_where("WHERE branches_pk = ?",(id))
+    employee_list = []
+    for employee in employees:
+        single_employee = {
+            "fName": employee.fName,
+            "lName": employee.lName,
+            "title": employee.title,
+            "dob": employee.dob
+        }
+        employee_list.append(single_employee)
+
     one_branch = []
     json = {
     "branchName": branch.branchName, 
@@ -129,7 +140,7 @@ def branch(id):
      "id": id 
      }
     one_branch.append(json)
-    return jsonify({"branch": one_branch})
+    return jsonify({"branch": one_branch, "employees": employee_list })
 
 @app.route('/addbranch', methods=['POST'])
 def addbranch():

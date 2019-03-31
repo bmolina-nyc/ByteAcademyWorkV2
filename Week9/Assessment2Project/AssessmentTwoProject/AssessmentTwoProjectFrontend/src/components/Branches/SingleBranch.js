@@ -11,7 +11,8 @@ class SingleBranch extends Component{
         zip: null,
         id: null,
         submitted: null,
-        deleted: null
+        deleted: null,
+        employees: []
     }
     componentDidMount() {
         fetch('http://127.0.0.1:5000' + this.props.location.pathname,{
@@ -27,7 +28,8 @@ class SingleBranch extends Component{
                 city: branch['city'],
                 state: branch['state'],
                 zip: branch['zip'],
-                id: branch['id']
+                id: branch['id'],
+                employees: data['employees']
             })
         })
     }
@@ -64,6 +66,10 @@ class SingleBranch extends Component{
 
 
     render(){
+        const employees = this.state.employees.map ( (employee) =>{
+            return <p>{employee.fName} {employee.lName} {employee.title} {employee.dob}</p>
+        })
+
         if (this.state.submitted || this.state.deleted){
             return <Redirect to='/' />
           }
@@ -73,11 +79,15 @@ class SingleBranch extends Component{
         } else {
         return(
             <div>
+            <h2>Branch Information</h2>
                 Branch: {this.state.branchName}
                 <br/>
                 City, St: {this.state.city}, {this.state.state}
                 <br/>
                 Zip: {this.state.zip}
+
+                <h2>Branch Employees</h2>
+                {this.state.employees && employees}
 
                 <h2>Edit this Branch</h2>
                 <form>
